@@ -1,0 +1,25 @@
+#sidebar{
+    width: 400px;
+}
+
+#ask {
+    float: right;
+}
+
+#errorSelection {
+    background-color: rgb(247, 106, 106);
+    color: white;
+    padding: 6px;
+    font-size: 14px;
+    height: 28;
+}
+
+#add {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    height: 36px;
+    padding: 8px, 12px;
+    background-color: rgb(245, 100, 0);
+    color: white;
+}
