@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/etsy');
 
+//GROUP ITEM----------------------------------------------------------------->
 //group item schema for all products
 let groupItemSchema = mongoose.Schema({
     fake_id: Number,
@@ -19,7 +20,7 @@ let groupItemSchema = mongoose.Schema({
 
 let Group = mongoose.model("Group", groupItemSchema);
 
-//Item schema for Four categories
+//Item schema for Four categories ------------------------------------------->
 //Shoes
 let shoeSchema = mongoose.Schema({
     fake_group_id: Number,
@@ -52,10 +53,20 @@ let otherSchema = mongoose.Schema({
 let Others = mongoose.model("Others", otherSchema);
 
 
+//Schema for Cart Item (for POST request) ------------------------------------>
+
+let cartSchema = mongoose.Schema({
+    user_id: Number,
+    item_id: String, //should link to the item_id for each product
+});
+
+let CartItem = mongoose.model("Cart", cartSchema);
+
 
 module.exports = {
     Group,
     Clothes,
     Shoes,
-    Others
+    Others,
+
 };
