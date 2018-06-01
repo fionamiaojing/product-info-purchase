@@ -34,8 +34,8 @@ let generateTemplate = (
 category = "Shoes";
 maxCart = 60;
 maxStorage = 20;
-title = ["Leather sandals", "Wedding shoes", "Greek leather boots", 
-        "Lace up high heel", "Handmade slipper", "High top sneaker", "Ballerina shoes", "Mules", "Glitter heels"];
+title = ["Handmade high heel", "Wedding shoes", "Scalloped leather pump", 
+        "Lace up high heel", "Sleek Patent Slingback Pump", "Ballerina shoes", "Glitter heels"];
 material = ["Leather", "Natural rubber", "Canvas", 
             "Suede", "Faux Leather"];
 maxFavorite = 1000;
@@ -56,10 +56,10 @@ for (let i = 0; i < 25; i++) {
 category = "Clothes";
 maxCart = 30;
 maxStorage = 40;
-title = ["T-shirt", "Wool Knit Coat", "Custom Sweater", 
-        "Woman Up Sweat Shirt", "Bridesmain Dress", 
-        "Personalized fancy dress", "Ivory Lace Long Sleeves"];
-material = ["Cotton", "Wool", "Silk", "Polyesters"];
+title = ["Lost in Kyoto collection", "Japanese style outwear", "Handmade painting top",
+        "Loosing fit stripe adjustable kimono dress", "Long kimono outwear", 
+        "Personalized fancy dress", "Japanese crane short kimono dress"];
+material = ["Cotton", "Silk", "Polyesters"];
 maxFavorite = 100;
 
 for (let i = 0; i < 35; i++) {
@@ -79,10 +79,10 @@ for (let i = 0; i < 35; i++) {
 category = "Handbags";
 maxCart = 20;
 maxStorage = 20;
-title = ["Evening clutch", "Crossbody Bag", "Backpack", 
-        "Leather Handbag", "Canvas purse", "Leather Tote",
-        "Shoulder bag", "Envelope clutch bag", "Handmade purse"];
-material = ["Leather", "Canvas", "Suede", "Nylon", "Faux Leather"];
+title = ["Yoga mat bag", "Crossbody bag", "Handcrafted vintage bag", 
+        "Gardon flower bag", "Artisan beach bag", "Asian style Tote",
+        "Bohomian clutch bag", "Half moon beach bag"];
+material = ["Pom pom", "Canvas", "Embroidered", "Cotton", "Fabric"];
 maxFavorite = 300;
 
 for (let i = 0; i < 25; i++) {
@@ -101,7 +101,8 @@ for (let i = 0; i < 25; i++) {
 category = "Home";
 maxCart = 40;
 maxStorage = 10;
-title = ["Home Decor", "House warming gift", "Model Style Stuff"];
+title = ["Espresso mug", "House warming gift", "Turquoise mug", "Coffee mug", 
+        "Colorful mug tea cup", "Rustic mug"];
 maxFavorite = 30;
 
 for (let i = 0; i < 15; i++) {
