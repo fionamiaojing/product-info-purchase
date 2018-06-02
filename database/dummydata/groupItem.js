@@ -47,7 +47,7 @@ for (let i = 0; i < 25; i++) {
         generateRandomNumber(maxCart), generateRandomNumber(maxStorage),
         material[i % material.length], generateRandomNumber(maxFavorite)
     );
-    let shoe = db.Group(property);
+    let shoe = new db.Group(property);
     shoe.save();
     groupId++;
 }
@@ -69,7 +69,7 @@ for (let i = 0; i < 35; i++) {
         generateRandomNumber(maxCart), generateRandomNumber(maxStorage),
         material[i % material.length], generateRandomNumber(maxFavorite)
     );
-    let cloth = db.Group(property);
+    let cloth = new db.Group(property);
     cloth.save();
     groupId++;
 }
@@ -92,7 +92,7 @@ for (let i = 0; i < 25; i++) {
         generateRandomNumber(maxCart), generateRandomNumber(maxStorage),
         material[i % material.length], generateRandomNumber(maxFavorite)
     );
-    let handbag = db.Group(property);
+    let handbag = new db.Group(property);
     handbag.save();
     groupId++;
 }
@@ -112,7 +112,7 @@ for (let i = 0; i < 15; i++) {
         generateRandomNumber(maxCart), generateRandomNumber(maxStorage),
         "", generateRandomNumber(maxFavorite)
     );
-    let home = db.Group(property);
+    let home = new db.Group(property);
     home.save();
     groupId++;
 }

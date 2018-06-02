@@ -63,10 +63,32 @@ let cartSchema = mongoose.Schema({
 let CartItem = mongoose.model("Cart", cartSchema);
 
 
+//Schema for Shipping Info (for GET request) --------------------------------->
+let shippingInfoSchema = mongoose.Schema({
+    fake_group_id: Number,
+    min_days: Number,
+    max_days: Number,
+    country: String
+});
+
+let ShippingInfo = mongoose.model("ShippingInfo", shippingInfoSchema);
+
+//Schema for Shipping Cost (for POST/GET request) --------------------------------->
+let shippingCostSchema = mongoose.Schema({
+    departure: String,
+    destination: String,
+    cost: Number
+});
+
+let ShippingCost = mongoose.model("ShippingCost", shippingCostSchema);
+
+
 module.exports = {
     Group,
     Clothes,
     Shoes,
     Others,
-
+    CartItem,
+    ShippingInfo,
+    ShippingCost
 };
