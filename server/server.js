@@ -12,7 +12,7 @@ app.post('/cart/:userID', (req, res) => {
     // console.log(req.params.userID);
     helper.saveToCartDatabase( 
         req.params.userID, 
-        req.body["item_id"]
+        req.body
     )
      .then((result) => {
          res.status(201).send("Created");
