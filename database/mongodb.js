@@ -15,7 +15,7 @@ let groupItemSchema = mongoose.Schema({
                 gift_message: { type: Boolean , default: true},
                 material: {type: String}
               },
-    favorate: {type: Number, default: 0},
+    favorite: {type: Number, default: 0},
   });
 
 let Group = mongoose.model("Group", groupItemSchema);

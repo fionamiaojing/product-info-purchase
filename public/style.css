@@ -23,3 +23,7 @@
     background-color: rgb(245, 100, 0);
     color: white;
 }
+
+label {
+    text-transform: capitalize;
+}

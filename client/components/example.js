@@ -1,19 +1,19 @@
 var data = {
     "group": {
-        "_id": "5b11be0eec0b55f32dbfe9a4",
+        "_id": "5b121fdfcaccdb0438ed394a",
         "fake_id": 1001,
         "title": "Handmade high heel",
         "category": "Shoes",
         "__v": 0,
-        "favorate": 0,
+        "favorite": 467,
         "overview": {
             "material": "Leather",
             "gift_message": true,
             "made_to_order": true,
             "handmade": true
         },
-        "number_in_storage": 2,
-        "count_in_cart": 50
+        "number_in_storage": 5,
+        "count_in_cart": 53
     },
     "items": [
         {
