@@ -1,4 +1,5 @@
 const express = require('express');
+const helper = require('./helper.js');
 
 const app = express();
 
@@ -6,38 +7,61 @@ app.use(express.json());
 app.use(express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
-app.post('/cart', (req, res) => {
-    console.log(req.body);
-    //the url should look like /cart/:userID
-    console.log(req.url);
+app.post('/cart/:userID', (req, res) => {
+    // console.log(req.body);
+    // console.log(req.params.userID);
+    helper.saveToCartDatabase( 
+        req.params.userID, 
+        req.body["item_id"]
+    )
+     .then((result) => {
+         res.status(201).send("Created");
+     })
+     .catch((error) => {
+         res.status(400).send("BAD REQUEST");
+     });
 });
 
 //GET request when the page renders
-app.get('/products', (req, res) => {
-    //the url should look like /products/:fake_groupID
-    console.log(req.url);
-    //get product data based on the fake_groupID
+app.get('/products/:id', (req, res) => {
+    let output;
+    helper.fetchGroup(req.params.id)
+      .then((groupItemResult) => {
+          output = groupItemResult[0];
+          return groupItemResult[0].category;
+      })
+      .then((category) => {
+        return helper.fetchItems(req.params.id, category);
+      })
+      .then((detailedItemResults) => {
+        res.status(200).send({group: output, items: detailedItemResults});
+      })
+      .catch((error) => {
+          res.status(400).send("BAD REQUEST");
+      });
+
 });
 
 //GET request when customer request for shipping info
-//may need to be put before get '/products'
-app.get('/shipping_info', (req, res) => {
-    //the url should look like /shipping/:fake_groupID/other info??
-    console.log(req.url);
-    //get product data based on the fake_groupID
+app.get('/shippingInfo/:id', (req, res) => {
+    helper.fetchShippingInfo(req.params.id)
+      .then((data) => {
+          res.status(200).send(data[0]);
+      })
+      .catch((err) => {
+          res.status(400).send("NOT FOUND");
+      });
 });
 
-app.post('/shipping_cost', (req, res) => {
-    //the url should look like /shipping/:fake_groupID/other info??
-    console.log(req.url);
+app.get('/shippingCost/:departure/:destination', (req, res) => {
     //get product data based on the fake_groupID
-    //check the correctness
-});
-
-app.get('/shipping_cost', (req, res) => {
-    //the url should look like /shipping/:fake_groupID/other info??
-    console.log(req.url);
-    //get product data based on the fake_groupID
+    helper.fetchShippingCost(req.params.departure, req.params.destination)
+      .then((data) => {
+          res.status(200).send({cost: data[0].cost});
+      })
+      .catch((err) => {
+          res.status(400).send("NOT FOUND");
+      });
 });
 
 const PORT = 3003;
