@@ -47,7 +47,7 @@ for (let groupID = 1001; groupID <= 1025; groupID++) {
             let shoe = new db.Shoes(property);
             shoe.save();
             // randomly increase price, if true, increase; else not
-            basePrice += Math.round(Math.random()) ? Math.floor(0.05) * basePrice : 0;
+            basePrice += Math.round(Math.random()) ? Math.floor(0.05 * basePrice) : 0;
         }
     }
 }
@@ -73,7 +73,7 @@ for (let groupID = 1026; groupID <= 1060; groupID++) {
             let cloth = new db.Clothes(property);
             cloth.save();
             // randomly increase price, if true, increase; else not
-            basePrice += Math.round(Math.random()) ? Math.floor(0.05) * basePrice : 0;
+            basePrice += Math.round(Math.random()) ? Math.floor(0.05 * basePrice) : 0;
         } 
     }
 }

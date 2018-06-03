@@ -9,16 +9,21 @@ export default class Selection extends React.Component {
             quantityArray: { quantity: 
                         Array.apply(null, {length: 16}).map(Number.call, Number).slice(1)
             },
+            //options for clothes and shoes
             options: {},
             quantity: 1
         };
         this.handleSelect = this.handleSelect.bind(this);
     }
 
+    //mapping options based on category
     mappingOptions(category) {
         if (category === "Shoes" || category === "Clothes") {
+            //Shoes and Clothes both have property of color and size
             let properties = ['color', 'size'];
             let options = [];
+            //generate options array for color and size respectivity
+            //then use the options array to render SelectionEntry
             properties.forEach((property) => {
                 let option = {};
                 option[property] = this.fetchProperty(this.props.items, property);
@@ -26,13 +31,15 @@ export default class Selection extends React.Component {
             });
             return options;
         } else {
-            //return id
+            //return empty array
             return [];
         }
     }
 
+    //fetch options based on property
     fetchProperty(arrayOfItem, property) {
         let output = {};
+        // why I need an input of array here??? I coundn't remember
         arrayOfItem.forEach((ele) => {
             output[ele[property]] = true;
         });
@@ -47,7 +54,19 @@ export default class Selection extends React.Component {
                 quantity: value
             });
             this.props.detectSelection(value, null);
+        } else if (value === "none") {
+            // if key already in options
+            // delete key from the options;
+            if (Object.keys(this.state.options).includes(key)) {
+                let newOptions = this.state.options;
+                delete newOptions[key];
+                this.setState({
+                    options: newOptions
+                });
+                this.props.detectSelection(null, newOptions);
+            }
         } else {
+            // update options
             let newOptions = this.state.options;
             newOptions[key] = value;
             //set State
