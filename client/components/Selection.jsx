@@ -85,6 +85,7 @@ export default class Selection extends React.Component {
                     <SelectionEntry 
                         key={Object.keys(option)[0]} 
                         option={option}
+                        displayError={this.props.displayError}
                         handleSelect={this.handleSelect}/>
                 )}
                 {<SelectionEntry 

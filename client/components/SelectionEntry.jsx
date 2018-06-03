@@ -6,7 +6,6 @@ export default class SelectionEntry extends React.Component {
         this.state = {
             key: Object.keys(this.props.option)[0],
             value: 'none',
-
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -15,7 +14,6 @@ export default class SelectionEntry extends React.Component {
         this.setState({
             value: e.target.value
         });
-
         this.props.handleSelect(this.state.key, e.target.value);
     }
 
@@ -38,7 +36,13 @@ export default class SelectionEntry extends React.Component {
                         </select>
                     </div>
                 </span>
-                <div id="errorSelection" style={{display: 'none'}}>Please select an option</div>
+                <div 
+                    id="errorSelection" 
+                    style={{display: 
+                        (this.props.displayError && this.state.value === 'none') ? 
+                        'block' : 'none'}}
+                >Please select an option
+                </div>
             </div>
         );
     }

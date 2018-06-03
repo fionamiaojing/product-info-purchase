@@ -16,6 +16,7 @@ export default class App extends React.Component {
             selectedItemId: "", //initialize when componentDidMount
             originalPrice: '',
             discountedPrice: '',
+            displayError: false
         };
        this.detectSelection = this.detectSelection.bind(this);
        this.handleClick = this.handleClick.bind(this);
@@ -95,7 +96,9 @@ export default class App extends React.Component {
     handleClick() {
         console.log(this.state.selectedItemId);
         if (this.state.selectedItemId === '') {
-            
+            this.setState({
+                displayError: true
+            });
         }
     }
 
@@ -111,6 +114,7 @@ export default class App extends React.Component {
                         <Selection
                             category={this.state.group.category} 
                             items={this.state.items}
+                            displayError={this.state.displayError}
                             detectSelection={this.detectSelection}/>
                     </div>
                 </div>
