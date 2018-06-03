@@ -24,8 +24,11 @@ export default class PeopleWant extends React.Component {
                 </svg>
                 <div>
                     <span>
-                        <strong>Other people want.</strong>
-                        Over 20 people have this in their carts right now.
+                        <strong>Other people want this. </strong>
+                        {this.props.amount > 20 ? 
+                          'Over 20 people have this in their carts right now.' : 
+                          `${this.props.amount} people have this in their carts right now.` 
+                        }
                     </span>
                 </div>
             </div>

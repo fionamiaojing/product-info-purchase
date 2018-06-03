@@ -1,7 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import Price from './Price.jsx';
 import Selection from './Selection.jsx';
-import SalesEnd from './SalesEnd.jsx';
+import AlmostGone from './AlmostGone.jsx';
 import PeopleWant from './PeopleWant.jsx';
 import data from './example.js';
 
@@ -99,6 +100,8 @@ export default class App extends React.Component {
             this.setState({
                 displayError: true
             });
+        } else {
+            //need to trigger POST request
         }
     }
 
@@ -120,8 +123,10 @@ export default class App extends React.Component {
                 </div>
                 <button id="add" onClick={this.handleClick}>Add to cart</button>
                 <div id="bottom">
-                   <SalesEnd />
-                   <PeopleWant />
+                    {this.state.group['number_in_storage'] < 10 ?
+                       <AlmostGone amount={this.state.group['number_in_storage']}/> :
+                       <PeopleWant amount={this.state.group['count_in_cart']}/>
+                    }
                 </div>
             </div>
         );

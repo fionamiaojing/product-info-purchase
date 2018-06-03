@@ -41,7 +41,7 @@ export default class SelectionEntry extends React.Component {
                     style={{display: 
                         (this.props.displayError && this.state.value === 'none') ? 
                         'block' : 'none'}}
-                >Please select an option
+                >Please select a {this.state.key}
                 </div>
             </div>
         );
