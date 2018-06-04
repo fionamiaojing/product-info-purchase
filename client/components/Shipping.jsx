@@ -10,7 +10,10 @@ export default class Shipping extends React.Component {
             <div>
                 <h2>Shipping & Returns</h2>
                 <div>
-                    Made just for you. Ready to ship in 3–4 weeks.
+                    {`Made just for you. Ready to ship in 
+                    ${this.props.shippingInfo['min_days']} – 
+                    ${this.props.shippingInfo['max_days']} days.`}
+                    
                 </div>
                 <div>
                     From China

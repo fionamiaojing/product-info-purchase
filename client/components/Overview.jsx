@@ -17,13 +17,13 @@ export default class Overview extends React.Component {
                 {info.overview['made_to_order'] ? 
                     <li>Made to order</li> : ""}
                 <li>
-                    Feedback:  
+                    {'Feedback: '} 
                     <a href="">
                         {info['reviews']} reviews
                     </a>
                 </li>
                 <li>
-                    Favorited by: 
+                    {'Favorited by: '}
                     <a href="">
                         {info['favorite']} people
                     </a>
@@ -32,5 +32,6 @@ export default class Overview extends React.Component {
                     <li>Gift message available</li> : ""}
             </ul>
         );
+        
     }
 }
