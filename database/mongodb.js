@@ -16,6 +16,7 @@ let groupItemSchema = mongoose.Schema({
                 material: {type: String}
               },
     favorite: {type: Number, default: 0},
+    reviews: {type: Number, default: 0}
   });
 
 let Group = mongoose.model("Group", groupItemSchema);

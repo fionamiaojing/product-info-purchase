@@ -4,6 +4,7 @@ import Price from './Price.jsx';
 import Selection from './Selection.jsx';
 import AlmostGone from './AlmostGone.jsx';
 import PeopleWant from './PeopleWant.jsx';
+import Overview from './Overview.jsx';
 import data from './example.js';
 
 export default class App extends React.Component {
@@ -127,6 +128,14 @@ export default class App extends React.Component {
                        <AlmostGone amount={this.state.group['number_in_storage']}/> :
                        <PeopleWant amount={this.state.group['count_in_cart']}/>
                     }
+                </div>
+                <hr/>
+                <div id="overview">
+                    <h2>Overview</h2>
+                    <Overview info={this.state.group}/>
+                </div>
+                <div id="shipping">
+                    <h2>Shipping & Returns</h2>
                 </div>
             </div>
         );
