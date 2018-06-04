@@ -23,3 +23,15 @@
     background-color: rgb(245, 100, 0);
     color: white;
 }
+
+label {
+    text-transform: capitalize;
+}
+
+a {
+    color: rgb(229, 84, 0);
+}
+
+.country {
+    float: left;
+}

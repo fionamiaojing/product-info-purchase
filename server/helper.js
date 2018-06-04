@@ -40,10 +40,11 @@ let categoryDetect = (category) => {
 };
 
 //post item-to-be-added-to-data to database
-let saveToCartDatabase = (userId, itemId) => {
+let saveToCartDatabase = (userId, {itemId, quantity}) => {
     let cartItem = new db.CartItem({
         user_id: userId,
-        item_id: itemId
+        item_id: itemId,
+        quantity: quantity
     });
     return new Promise((resolve, reject) => {
         cartItem.save((err, result) => {

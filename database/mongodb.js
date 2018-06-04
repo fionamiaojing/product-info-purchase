@@ -15,7 +15,8 @@ let groupItemSchema = mongoose.Schema({
                 gift_message: { type: Boolean , default: true},
                 material: {type: String}
               },
-    favorate: {type: Number, default: 0},
+    favorite: {type: Number, default: 0},
+    reviews: {type: Number, default: 0}
   });
 
 let Group = mongoose.model("Group", groupItemSchema);
@@ -56,8 +57,9 @@ let Others = mongoose.model("Others", otherSchema);
 //Schema for Cart Item (for POST request) ------------------------------------>
 
 let cartSchema = mongoose.Schema({
-    user_id: Number,
+    user_id: String,
     item_id: String, //should link to the item_id for each product
+    quantity: Number,
 });
 
 let CartItem = mongoose.model("Cart", cartSchema);
