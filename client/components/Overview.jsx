@@ -18,7 +18,7 @@ export default class Overview extends React.Component {
                     <li>Made to order</li> : ""}
                 <li>
                     {'Feedback: '} 
-                    <a href="">
+                    <a href="#reviews">
                         {info['reviews']} reviews
                     </a>
                 </li>

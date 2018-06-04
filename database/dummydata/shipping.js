@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const db = require('../mongodb.js');
+const postcode = require('postcode-validator');
 
 let country = ['Bulgaria', 'China', 'Russia', 'Indonesia', 
                 'Japan', 'France', 'Thailand', 'Sweden',

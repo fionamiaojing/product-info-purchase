@@ -35,3 +35,7 @@ a {
 .country {
     float: left;
 }
+
+#zipError {
+    color: rgb(193, 60, 39)
+}
