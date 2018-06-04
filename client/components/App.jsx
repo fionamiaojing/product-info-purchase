@@ -57,7 +57,6 @@ export default class App extends React.Component {
     }
 
     detectSelection(quantity, options) {
-        // console.log(quantity, options);
         // update option and quantity
         this.setState({
             options: options || this.state.options,
@@ -128,9 +127,9 @@ export default class App extends React.Component {
 
     send(cartItem) {
         axios.post(`/cart/${this.state.username}`, cartItem)
-          .then((response) => {
-              console.log(response.data);
-          })
+        //   .then((response) => {
+        //       console.log(response.data);
+        //   })
           .catch((error) => {
               console.log(error);
           });
