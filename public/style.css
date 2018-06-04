@@ -31,3 +31,7 @@ label {
 a {
     color: rgb(229, 84, 0);
 }
+
+.country {
+    float: left;
+}

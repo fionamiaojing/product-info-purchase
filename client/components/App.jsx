@@ -5,6 +5,7 @@ import Selection from './Selection.jsx';
 import AlmostGone from './AlmostGone.jsx';
 import PeopleWant from './PeopleWant.jsx';
 import Overview from './Overview.jsx';
+import Shipping from './Shipping.jsx';
 import data from './example.js';
 
 export default class App extends React.Component {
@@ -134,8 +135,9 @@ export default class App extends React.Component {
                     <h2>Overview</h2>
                     <Overview info={this.state.group}/>
                 </div>
+                <hr/>
                 <div id="shipping">
-                    <h2>Shipping & Returns</h2>
+                   <Shipping />
                 </div>
             </div>
         );
