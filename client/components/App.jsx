@@ -14,6 +14,7 @@ export default class App extends React.Component {
         this.state = {
             group: data.group,
             items: data.items,
+            username: 'hrsf950001',
             options: {},
             quantity: 1,
             selectedItemId: "", //initialize when componentDidMount
@@ -97,14 +98,27 @@ export default class App extends React.Component {
     }
 
     handleClick() {
-        console.log(this.state.selectedItemId);
         if (this.state.selectedItemId === '') {
             this.setState({
                 displayError: true
             });
         } else {
             //need to trigger POST request
+            this.send({
+                itemId: this.state.selectedItemId,
+                quantity:  this.state.quantity 
+            });
         }
+    }
+
+    send(cartItem) {
+        axios.post(`/cart/${this.state.username}`, cartItem)
+          .then((response) => {
+              console.log(response.data);
+          })
+          .catch((error) => {
+              console.log(error);
+          });
     }
 
     render() {

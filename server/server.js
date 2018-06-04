@@ -8,8 +8,8 @@ app.use(express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
 app.post('/cart/:userID', (req, res) => {
-    // console.log(req.body);
-    // console.log(req.params.userID);
+    console.log(req.body);
+    console.log(req.params.userID);
     helper.saveToCartDatabase( 
         req.params.userID, 
         req.body

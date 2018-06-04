@@ -57,7 +57,7 @@ let Others = mongoose.model("Others", otherSchema);
 //Schema for Cart Item (for POST request) ------------------------------------>
 
 let cartSchema = mongoose.Schema({
-    user_id: Number,
+    user_id: String,
     item_id: String, //should link to the item_id for each product
     quantity: Number,
 });
