@@ -1,0 +1,202 @@
+#sidebar{
+    width: 392px;
+    font-family: "Graphik Webfont", -apple-system,BlinkMacSystemFont,
+                "Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
+    line-height: 20px;
+}
+
+h1, h2 {
+    font-family: serif;
+    width: auto;
+    text-shadow: 0 1px 0 white;
+    color: #333;
+    text-rendering: optimizeLegibility;
+}
+
+/* Ask a Question */
+#ask {
+    float: right;
+    width: 113px;
+    height: 23px;
+    padding: 4px, 11px;
+    font-weight: bold;
+    color: #444;
+    font-size: 13px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+}
+
+/* Price Tag */
+label {
+    text-transform: capitalize;
+}
+
+#discountPrice {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+#originalPrice {
+    color: #777;
+    font-size: 14.286px;
+    font-weight: 400;
+}
+
+#saving {
+    color: #2E8539;
+    font-size: 14.286px;
+    margin: 0;
+}
+
+/* Section divider  */
+#sectionDivider1 {
+    height: 19.6px;
+}
+
+hr {
+    margin: 21px 0;
+}
+
+/* Selection Tag  */
+#selection {
+    color: #222;
+    font-size: 14px;
+    margin: 14px 0;
+}
+
+#optionSelect {
+    border: 1px solid rgb(166, 166, 166);
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+#errorSelection {
+    background-color: rgb(247, 106, 106);
+    color: white;
+    padding: 6px;
+    font-size: 12px;
+    height: 28;
+    border-radius: 3px;
+    margin-top: 6px;
+}
+
+/* Buttons for Add-to-cart & Buy-it-now  */
+.buttons {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    height: 36px;
+    padding: 8px, 12px;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+#buy {
+    border: 2px solid rgb(245, 100, 0);
+    color: rgb(245, 100, 0); 
+}
+
+#buy:hover, #add {
+    background-color: rgb(245, 100, 0);
+    color: white;
+}
+
+#add:hover {
+    background-color: rgba(245, 100, 0, 0.932); 
+}
+
+/* Bottom part for People Want & Almost Gone  */
+#bottom {
+    display: table;
+}
+
+.bottomCell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+svg {
+    margin-right: 12px;
+}
+
+/* Overview  */
+h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+a {
+    color: rgb(229, 84, 0);
+}
+
+
+/* Shipping */
+#shipping {
+    font-size: 14px;
+}
+
+#shippingDays {
+    font-weight: 700;  
+}
+
+.shippingInfo {
+    margin: 6px 0;
+}
+
+#country {
+    float: left;
+    margin: 12px 0;
+    padding: 0 18px;
+    font-size: 12px;
+}
+
+#countrySelect {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    font-size: 14px;
+    height: 38px;
+    padding-left: 12px;
+    padding-right: 30px;
+    width: 162px;
+}
+
+#zip {
+    margin: 12px 0;
+    padding: 0 6px;
+    float: left;
+    font-size: 12px;
+}
+
+#zipSelect {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    font-size: 14px;
+    height: 14px;
+    padding: 12px 9px;
+    width: 135px;
+}
+
+#upgrade {
+    color: #777;
+    font-size: 12px;
+    line-height: 16.8px;
+    padding-bottom: 6px;
+    clear: left;
+}
+
+#return {
+    margin-top: 18px;
+}
+
+#zipError {
+    color: rgb(193, 60, 39)
+}

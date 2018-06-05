@@ -6,21 +6,21 @@ import AlmostGone from './AlmostGone.jsx';
 import PeopleWant from './PeopleWant.jsx';
 import Overview from './Overview.jsx';
 import Shipping from './Shipping.jsx';
-import data from './example.js';
 
 export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            group: data.group,
-            items: data.items,
+            group: {},
+            items: {},
             username: 'hrsf950001',
             options: {},
             quantity: 1,
             selectedItemId: "", //initialize when componentDidMount
             originalPrice: '',
             discountedPrice: '',
-            displayError: false
+            displayError: false,
+            shippingInfo: {},
         };
        this.detectSelection = this.detectSelection.bind(this);
        this.handleClick = this.handleClick.bind(this);
@@ -28,20 +28,35 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        if (this.state.group.category === "Handbags" || this.state.group.category === "Home") {
-           let item = this.state.items[0];
-           this.setState({
-               selectedItemId: item['_id'],
-               originalPrice: item['original_price'],
-               discountedPrice: item['discounted_price']
-           });
-        } else {
-           this.setPrices(this.state.items);
-        }
+        let groupID = document.URL.split('?=')[1];
+        //fetch product information
+        this.fetchProduct(groupID, (data) => {
+            this.setState({
+                group: data.group,
+                items: data.items
+            });
+            if (
+                data.group.category === "Handbags" || 
+                data.group.category === "Home") {
+               let item = data.items[0];
+               this.setState({
+                   selectedItemId: item['_id'],
+                   originalPrice: item['original_price'],
+                   discountedPrice: item['discounted_price']
+               });
+            } else {
+               this.setPrices(data.items);
+            }
+        });
+        //fetch shipping information
+        this.fetchShippingInfo(groupID, (data) => {
+            this.setState({
+                shippingInfo: data
+            });
+        });
     }
 
     detectSelection(quantity, options) {
-        // console.log(quantity, options);
         // update option and quantity
         this.setState({
             options: options || this.state.options,
@@ -103,7 +118,6 @@ export default class App extends React.Component {
                 displayError: true
             });
         } else {
-            //need to trigger POST request
             this.send({
                 itemId: this.state.selectedItemId,
                 quantity:  this.state.quantity 
@@ -113,8 +127,28 @@ export default class App extends React.Component {
 
     send(cartItem) {
         axios.post(`/cart/${this.state.username}`, cartItem)
+        //   .then((response) => {
+        //       console.log(response.data);
+        //   })
+          .catch((error) => {
+              console.log(error);
+          });
+    }
+
+    fetchProduct(groupID, callback) {
+        axios.get(`products/${groupID}`)
           .then((response) => {
-              console.log(response.data);
+              callback(response.data);
+          })
+          .catch((error) => {
+              console.log(error);
+          });
+    }
+
+    fetchShippingInfo(groupID, callback) {
+        axios.get(`/shippingInfo/${groupID}`)
+          .then((response) => {
+              callback(response.data);
           })
           .catch((error) => {
               console.log(error);
@@ -130,6 +164,7 @@ export default class App extends React.Component {
                         <Price 
                             originalPrice={this.state.originalPrice}
                             discountedPrice={this.state.discountedPrice}/>
+                        <div id='sectionDivider1'></div>
                         <Selection
                             category={this.state.group.category} 
                             items={this.state.items}
@@ -137,7 +172,8 @@ export default class App extends React.Component {
                             detectSelection={this.detectSelection}/>
                     </div>
                 </div>
-                <button id="add" onClick={this.handleClick}>Add to cart</button>
+                <button className='buttons' id="buy" onClick={this.handleClick}>Buy it now ></button>
+                <button className='buttons' id="add" onClick={this.handleClick}>Add to cart</button>
                 <div id="bottom">
                     {this.state.group['number_in_storage'] < 10 ?
                        <AlmostGone amount={this.state.group['number_in_storage']}/> :
@@ -147,12 +183,17 @@ export default class App extends React.Component {
                 <hr/>
                 <div id="overview">
                     <h2>Overview</h2>
-                    <Overview info={this.state.group}/>
+                    {Object.keys(this.state.group).length > 0 ? 
+                        <Overview info={this.state.group}/> :
+                        ''
+                    }
                 </div>
                 <hr/>
-                <div id="shipping">
-                   <Shipping />
+                <div>
+                   <h2>Shipping & returns</h2>
+                   <Shipping shippingInfo={this.state.shippingInfo}/>
                 </div>
+                <hr/>
             </div>
         );
     }

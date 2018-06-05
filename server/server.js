@@ -4,6 +4,7 @@ const helper = require('./helper.js');
 const app = express();
 
 app.use(express.json());
+//make html request like http://localhost:3003/?=1001
 app.use(express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
