@@ -37,9 +37,13 @@
     "webpack": "^3.11.0"
   },
   "devDependencies": {
+    "babel-jest": "^23.0.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
     "jest": "^22.4.4",
     "nodemon": "^1.17.5",
+    "react-test-renderer": "^16.4.0",
     "style-loader": "^0.21.0"
   }
 }

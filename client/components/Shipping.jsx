@@ -48,7 +48,7 @@ export default class Shipping extends React.Component {
     //fetch shipping cost info from database
 
     fetchShippingCost(departure, destination) {
-        axios.get(`/shippingCost/${departure}/${destination}`)
+        axios.get(`/listing/shippingCost/${departure}/${destination}`)
           .then((response) => {
               //display shipping cost info
               this.setState({

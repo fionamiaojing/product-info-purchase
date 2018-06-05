@@ -28,7 +28,7 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        let groupID = document.URL.split('?=')[1];
+        let groupID = document.URL.split('?pid=')[1];
         //fetch product information
         this.fetchProduct(groupID, (data) => {
             this.setState({
@@ -126,7 +126,7 @@ export default class App extends React.Component {
     }
 
     send(cartItem) {
-        axios.post(`/cart/${this.state.username}`, cartItem)
+        axios.post(`/listing/cart/${this.state.username}`, cartItem)
         //   .then((response) => {
         //       console.log(response.data);
         //   })
@@ -136,7 +136,7 @@ export default class App extends React.Component {
     }
 
     fetchProduct(groupID, callback) {
-        axios.get(`products/${groupID}`)
+        axios.get(`/listing/${groupID}`)
           .then((response) => {
               callback(response.data);
           })
@@ -146,7 +146,7 @@ export default class App extends React.Component {
     }
 
     fetchShippingInfo(groupID, callback) {
-        axios.get(`/shippingInfo/${groupID}`)
+        axios.get(`/listing/shippingInfo/${groupID}`)
           .then((response) => {
               callback(response.data);
           })
