@@ -5,11 +5,6 @@ import AskQuestion from './PopUp.jsx';
 export default class Price extends React.Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick() {
-
     }
 
     render() {
