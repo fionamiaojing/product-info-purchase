@@ -20,18 +20,23 @@ export default class SelectionEntry extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="selection">
                 <label>
                     {this.state.key}
                 </label>
                 <span>
                     <div>
-                        <select value={this.state.value} onChange={this.handleChange}>
+                        <select 
+                            id ='optionSelect'
+                            value={this.state.value} 
+                            onChange={this.handleChange}>
                             {this.state.key === "quantity" ? 
                                 '' : <option value="none" >Select an option</option>}
                             
                             {this.props.option[this.state.key].map((value) => 
-                                <option key={value} value={value}>{value}</option>
+                                <option key={value} value={value}>
+                                    {value}
+                                </option>
                             )}
                         </select>
                     </div>

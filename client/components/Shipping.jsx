@@ -96,15 +96,16 @@ export default class Shipping extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Shipping & Returns</h2>
-                <div>
+            <div id='shipping'>
+                <div id='shippingDays' className='shippingInfo'>
                     {`Made just for you. Ready to ship in 
                     ${this.props.shippingInfo['min_days']} – 
                     ${this.props.shippingInfo['max_days']} days.`}
                 </div>
+                <div className='shippingInfo'>
                     From {this.props.shippingInfo.country}
-                <div>
+                </div>
+                <div className='shippingInfo'>
                     <a href="#country" onClick={this.handleClick}>
                         {this.state.shippingCost ? 
                         `$${this.state.shippingCost} shipping to 
@@ -117,7 +118,10 @@ export default class Shipping extends React.Component {
                     <div id='country'>
                         Country
                         <div>
-                            <select onChange={this.handleCountryChange}>
+                            <select 
+                                id ='countrySelect'
+                                onChange={this.handleCountryChange}
+                            >
                                 <option value="none">Choose Country</option>
                                 {this.state.destinCountry.map((country) => 
                                     <option value={country} key={country}>{country}</option>
@@ -129,7 +133,11 @@ export default class Shipping extends React.Component {
                     <div id='zip' style={{display: this.state.displayZip}}>
                         Zip or postal code
                         <div>
-                            <input type="text" onChange={this.handleZipChange}/>
+                            <input 
+                                id='zipSelect'
+                                type="text" 
+                                onChange={this.handleZipChange}
+                            />
                         </div>
                         <div 
                             id='zipError' 
@@ -138,11 +146,13 @@ export default class Shipping extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div id='upgrade'>
                     Shipping upgrades available in the cart
-                <div>
-                    Returns and exchanges accepted <br/>
-                    Exceptions may apply. 
-                    <a href=""> See return policy</a>   
+                </div>
+                <div id='return'>
+                    <strong>Returns and exchanges accepted</strong><br/>
+                    {'Exceptions may apply. '}
+                    <a href="">See return policy</a>  
                 </div>
             </div>
         );

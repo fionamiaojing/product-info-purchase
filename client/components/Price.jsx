@@ -8,14 +8,14 @@ export default class Price extends React.Component {
     }
 
     handleClick() {
-        
+
     }
 
     render() {
         let priceTag;
         //conditional rendering
         if (_.isEqual(this.props.originalPrice, this.props.discountedPrice)) {
-            priceTag = <span>{this.props.discountedPrice[0]} </span>;
+            priceTag = <span id="discountPrice">${this.props.discountedPrice[0]} </span>;
         } else if (this.props.discountedPrice.length === 1 &&
             this.props.originalPrice.length === 1) {
             let discount = 100 - Math.round(
@@ -23,12 +23,14 @@ export default class Price extends React.Component {
                 this.props.originalPrice[0] * 100
             );
             priceTag = <span>
-                            <span>{this.props.discountedPrice[0]} </span>
-                            <strike>{this.props.originalPrice[0]}</strike>
-                            <p>You saved {discount} %</p>
+                            <span id="discountPrice">${this.props.discountedPrice[0]} </span>
+                            <strike id="originalPrice">${this.props.originalPrice[0]}</strike>
+                            <p id="saving">You save $
+                            {this.props.originalPrice[0] - this.props.discountedPrice[0]} 
+                            ({discount}%)</p>
                        </span>;
         } else {
-            priceTag = <span>{this.props.discountedPrice[0]}+ </span>;
+            priceTag = <span id="discountPrice">${this.props.discountedPrice[0]}+ </span>;
         }
     
         return (

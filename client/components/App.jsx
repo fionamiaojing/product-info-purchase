@@ -164,6 +164,7 @@ export default class App extends React.Component {
                         <Price 
                             originalPrice={this.state.originalPrice}
                             discountedPrice={this.state.discountedPrice}/>
+                        <div id='sectionDivider1'></div>
                         <Selection
                             category={this.state.group.category} 
                             items={this.state.items}
@@ -171,7 +172,8 @@ export default class App extends React.Component {
                             detectSelection={this.detectSelection}/>
                     </div>
                 </div>
-                <button id="add" onClick={this.handleClick}>Add to cart</button>
+                <button className='buttons' id="buy" onClick={this.handleClick}>Buy it now ></button>
+                <button className='buttons' id="add" onClick={this.handleClick}>Add to cart</button>
                 <div id="bottom">
                     {this.state.group['number_in_storage'] < 10 ?
                        <AlmostGone amount={this.state.group['number_in_storage']}/> :
@@ -187,9 +189,11 @@ export default class App extends React.Component {
                     }
                 </div>
                 <hr/>
-                <div id="shipping">
+                <div>
+                   <h2>Shipping & returns</h2>
                    <Shipping shippingInfo={this.state.shippingInfo}/>
                 </div>
+                <hr/>
             </div>
         );
     }
