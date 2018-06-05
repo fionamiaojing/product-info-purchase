@@ -11,6 +11,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            pid: '',
             group: {},
             items: {},
             username: 'hrsf950001',
@@ -28,9 +29,7 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        let groupID = document.URL.split('?pid=')[1];
-        //fetch product information
-        this.fetchProduct(groupID, (data) => {
+        this.fetchProduct((data) => {
             this.setState({
                 group: data.group,
                 items: data.items
@@ -49,7 +48,7 @@ export default class App extends React.Component {
             }
         });
         //fetch shipping information
-        this.fetchShippingInfo(groupID, (data) => {
+        this.fetchShippingInfo((data) => {
             this.setState({
                 shippingInfo: data
             });
@@ -126,7 +125,7 @@ export default class App extends React.Component {
     }
 
     send(cartItem) {
-        axios.post(`/listing/cart/${this.state.username}`, cartItem)
+        axios.post(`/listing/${this.props.pid}/cart/${this.state.username}`, cartItem)
         //   .then((response) => {
         //       console.log(response.data);
         //   })
@@ -135,8 +134,8 @@ export default class App extends React.Component {
           });
     }
 
-    fetchProduct(groupID, callback) {
-        axios.get(`/listing/${groupID}`)
+    fetchProduct(callback) {
+        axios.get(`/listing/item/${this.props.pid}`)
           .then((response) => {
               callback(response.data);
           })
@@ -145,8 +144,8 @@ export default class App extends React.Component {
           });
     }
 
-    fetchShippingInfo(groupID, callback) {
-        axios.get(`/listing/shippingInfo/${groupID}`)
+    fetchShippingInfo(callback) {
+        axios.get(`/listing/${this.props.pid}/shippingInfo`)
           .then((response) => {
               callback(response.data);
           })
@@ -191,7 +190,9 @@ export default class App extends React.Component {
                 <hr/>
                 <div>
                    <h2>Shipping & returns</h2>
-                   <Shipping shippingInfo={this.state.shippingInfo}/>
+                   <Shipping 
+                        shippingInfo={this.state.shippingInfo}
+                        pid={this.props.pid}/>
                 </div>
                 <hr/>
             </div>

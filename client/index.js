@@ -3,4 +3,6 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import App from './components/App.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+let pid = document.URL.match(/\/[\w]+\/([\d]+)/)[1];
+
+ReactDOM.render(<App pid={pid}/>, document.getElementById('app'));
