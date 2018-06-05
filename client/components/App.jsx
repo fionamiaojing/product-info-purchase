@@ -157,7 +157,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div id="sidebar">
+            <div className="sidebar">
                 <div id="tophalf">
                     <h1>{this.state.group.title}</h1>
                     <div>

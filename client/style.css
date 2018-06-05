@@ -1,4 +1,4 @@
-#sidebar{
+.sidebar{
     width: 392px;
     font-family: "Graphik Webfont", -apple-system,BlinkMacSystemFont,
                 "Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
@@ -199,4 +199,92 @@ a {
 
 #zipError {
     color: rgb(193, 60, 39)
+}
+
+/* PopUp window for ask a question */
+
+#popUp {
+    width: 500px;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-collapse: collapse;
+    background-color: #F5F5F1;
+}
+
+.header {
+    padding: 17px 21px;
+    border: 1px solid  rgb(166, 166, 166);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+
+.contactor {
+    color:  rgb(166, 166, 166)
+}
+
+.body {
+    padding: 19px 21px;
+    background-color: white;
+}
+
+#content {
+    margin-left: 90px;
+}
+
+#square {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin: 0 15px;
+    border: 1px solid rgb(166, 166, 166);
+    background-color: rgb(166, 166, 166)
+}
+
+#questionName {
+    border: 1px solid  rgb(166, 166, 166);
+    border-radius: 3px;
+    display: inline-block;
+    width: 300px;
+    padding: 10px;
+}
+
+textarea {
+    margin-top: 8px;
+    width: 345px;
+    padding: 10px;
+    height: 132px;
+    border: 1px solid  rgb(166, 166, 166);
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.footer {
+    height: 34;
+    padding: 13px 21px;
+    border-top: 1px solid rgb(166, 166, 166);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#send,
+#cancel {
+    width: 79px;
+    height: 33px;
+    padding: 7px 15px;
+    border: 1px solid  rgb(166, 166, 166);
+    border-collapse: collapse;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#send {
+    background-color:  rgb(245, 100, 0);
+    margin-left: 290px;
+    margin-right: 10px;
+    color: white
 }

@@ -1,28 +1,71 @@
 import React from 'react';
+import Popup from 'reactjs-popup';
 
-const PopUp = (props) => {
 
-    return (
-        <div>
-            <div className='header'>
-                <h2>New Conversation</h2>
-                <span>with Nikolas from ColorHomeDecor</span>
-            </div>
-            <div className='body'>
-                <div>
-                    <img src="" alt=""/>
-                </div>
-                <div>
-                    <input type="text"/>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                </div>
-            </div>
-            <div className='footer'>
-                <button>Submit</button>
-                <a className='cancel'>Cancel</a>
-            </div>
-        </div>
-    );
-};
+export default class AskQuestion extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        };
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+    }
 
-export default PopUp;
+    openModal() {
+        this.setState({ 
+            open: true 
+        });
+    }
+    
+    closeModal() {
+        this.setState({ 
+            open: false 
+        });
+    }
+    
+    render() {
+        return (
+            <div>
+                <button 
+                    id="ask"
+                    onClick={this.openModal}
+                >
+                    Ask a question
+                </button>
+                <Popup
+                    open={this.state.open}
+                    closeOnDocumentClick
+                    onClose={this.closeModal}
+                >
+                    <div id="popUp">
+                        <div className='header'>
+                            <h2>New Conversation</h2>
+                            <span className='contactor'>with Nikolas from ColorHomeDecor</span>
+                        </div>
+                        <div className='body'>
+                            <div>
+                                <div id='square'></div>
+                            </div>
+                            <div id="content">
+                                <input 
+                                    id="questionName" 
+                                    type="text"
+                                    placeholder="Item name here..."
+                            /><br/>
+                                <textarea 
+                                    cols="30" rows="10"
+                                    placeholder="Your questions here..."
+                                ></textarea>
+                            </div>
+                        </div>
+                        <div className='footer'>
+                            <button id='send' onClick={this.closeModal}>Send</button>
+                            <button id='cancel' onClick={this.closeModal}>Cancel</button>
+                        </div>
+                    </div>
+                </Popup>
+            </div>
+        );
+    }
+}

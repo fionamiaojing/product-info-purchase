@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import AskQuestion from './PopUp.jsx';
 
 export default class Price extends React.Component {
     constructor(props) {
@@ -35,12 +36,7 @@ export default class Price extends React.Component {
     
         return (
             <div id="price">
-                <button 
-                    id="ask"
-                    onClick={this.handleClick}
-                >
-                    Ask a question
-                </button>
+                <AskQuestion />
                 {priceTag}
             </div>
         );  
