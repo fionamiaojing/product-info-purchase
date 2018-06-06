@@ -26,7 +26,7 @@ export default class Selection extends React.Component {
             //then use the options array to render SelectionEntry
             properties.forEach((property) => {
                 let option = {};
-                option[property] = this.fetchProperty(this.props.items, property);
+                option[property] = this.fetchProperty(property);
                 options.push(option);
             });
             return options;
@@ -37,10 +37,9 @@ export default class Selection extends React.Component {
     }
 
     //fetch options based on property
-    fetchProperty(arrayOfItem, property) {
+    fetchProperty(property) {
         let output = {};
-        // why I need an input of array here??? I coundn't remember
-        arrayOfItem.forEach((ele) => {
+        this.props.items.forEach((ele) => {
             output[ele[property]] = true;
         });
         return Object.keys(output).sort((a, b) => (

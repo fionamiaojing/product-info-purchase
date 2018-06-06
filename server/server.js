@@ -5,10 +5,10 @@ const app = express();
 
 app.use(express.json());
 //make html request like http://localhost:3003/?=1001
-app.use(express.static(__dirname + '/../public'));
+app.use('/listing/:id', express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
-app.post('/cart/:userID', (req, res) => {
+app.post('/listing/:id/cart/:userID', (req, res) => {
     console.log(req.body);
     console.log(req.params.userID);
     helper.saveToCartDatabase( 
@@ -24,7 +24,7 @@ app.post('/cart/:userID', (req, res) => {
 });
 
 //GET request when the page renders
-app.get('/products/:id', (req, res) => {
+app.get('/listing/item/:id', (req, res) => {
     let output;
     helper.fetchGroup(req.params.id)
       .then((groupItemResult) => {
@@ -44,7 +44,7 @@ app.get('/products/:id', (req, res) => {
 });
 
 //GET request when customer request for shipping info
-app.get('/shippingInfo/:id', (req, res) => {
+app.get('/listing/:id/shippingInfo', (req, res) => {
     helper.fetchShippingInfo(req.params.id)
       .then((data) => {
           res.status(200).send(data[0]);
@@ -54,7 +54,7 @@ app.get('/shippingInfo/:id', (req, res) => {
       });
 });
 
-app.get('/shippingCost/:departure/:destination', (req, res) => {
+app.get('/listing/:id/shippingCost/:departure/:destination', (req, res) => {
     //get product data based on the fake_groupID
     helper.fetchShippingCost(req.params.departure, req.params.destination)
       .then((data) => {

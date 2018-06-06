@@ -8,6 +8,7 @@
 h1, h2 {
     font-family: serif;
     width: auto;
+    line-height: 1.2em;
     text-shadow: 0 1px 0 white;
     color: #333;
     text-rendering: optimizeLegibility;
@@ -50,10 +51,6 @@ label {
 }
 
 /* Section divider  */
-#sectionDivider1 {
-    height: 19.6px;
-}
-
 hr {
     margin: 21px 0;
 }
@@ -69,6 +66,8 @@ hr {
     border: 1px solid rgb(166, 166, 166);
     border-radius: 5px;
     font-size: 11px;
+    width: 180px;
+    height: 20px;
 }
 
 #errorSelection {

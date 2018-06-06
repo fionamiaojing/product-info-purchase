@@ -11,6 +11,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            pid: '',
             group: {},
             items: {},
             username: 'hrsf950001',
@@ -28,9 +29,7 @@ export default class App extends React.Component {
     }
 
     componentDidMount() {
-        let groupID = document.URL.split('?=')[1];
-        //fetch product information
-        this.fetchProduct(groupID, (data) => {
+        this.fetchProduct((data) => {
             this.setState({
                 group: data.group,
                 items: data.items
@@ -49,7 +48,7 @@ export default class App extends React.Component {
             }
         });
         //fetch shipping information
-        this.fetchShippingInfo(groupID, (data) => {
+        this.fetchShippingInfo((data) => {
             this.setState({
                 shippingInfo: data
             });
@@ -64,10 +63,7 @@ export default class App extends React.Component {
         });
         // assess if all options are provided
         if (!options) {
-            //set selectItem to none
-            this.setState({
-                selectedItemId: ''
-            });
+            //if options not provided, do nothing
             return;
         }
         if (Object.keys(options).length === 2) {
@@ -126,32 +122,32 @@ export default class App extends React.Component {
     }
 
     send(cartItem) {
-        axios.post(`/cart/${this.state.username}`, cartItem)
+        axios.post(`/listing/${this.props.pid}/cart/${this.state.username}`, cartItem)
         //   .then((response) => {
         //       console.log(response.data);
         //   })
           .catch((error) => {
-              console.log(error);
+              throw error;
           });
     }
 
-    fetchProduct(groupID, callback) {
-        axios.get(`products/${groupID}`)
+    fetchProduct(callback) {
+        axios.get(`/listing/item/${this.props.pid}`)
           .then((response) => {
               callback(response.data);
           })
           .catch((error) => {
-              console.log(error);
+              throw error;
           });
     }
 
-    fetchShippingInfo(groupID, callback) {
-        axios.get(`/shippingInfo/${groupID}`)
+    fetchShippingInfo(callback) {
+        axios.get(`/listing/${this.props.pid}/shippingInfo`)
           .then((response) => {
               callback(response.data);
           })
           .catch((error) => {
-              console.log(error);
+              throw error;
           });
     }
 
@@ -164,7 +160,6 @@ export default class App extends React.Component {
                         <Price 
                             originalPrice={this.state.originalPrice}
                             discountedPrice={this.state.discountedPrice}/>
-                        <div id='sectionDivider1'></div>
                         <Selection
                             category={this.state.group.category} 
                             items={this.state.items}
@@ -191,7 +186,9 @@ export default class App extends React.Component {
                 <hr/>
                 <div>
                    <h2>Shipping & returns</h2>
-                   <Shipping shippingInfo={this.state.shippingInfo}/>
+                   <Shipping 
+                        shippingInfo={this.state.shippingInfo}
+                        pid={this.props.pid}/>
                 </div>
                 <hr/>
             </div>
