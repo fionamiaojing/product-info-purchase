@@ -9,8 +9,8 @@ app.use('/listing/:id', express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
 app.post('/listing/:id/cart/:userID', (req, res) => {
-    // console.log(req.body);
-    // console.log(req.params.userID);
+    console.log(req.body);
+    console.log(req.params.userID);
     helper.saveToCartDatabase( 
         req.params.userID, 
         req.body
@@ -35,7 +35,6 @@ app.get('/listing/item/:id', (req, res) => {
         return helper.fetchItems(req.params.id, category);
       })
       .then((detailedItemResults) => {
-          console.log({group: output, items: detailedItemResults});
         res.status(200).send({group: output, items: detailedItemResults});
       })
       .catch((error) => {

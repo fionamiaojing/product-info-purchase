@@ -63,10 +63,7 @@ export default class App extends React.Component {
         });
         // assess if all options are provided
         if (!options) {
-            //set selectItem to none
-            this.setState({
-                selectedItemId: ''
-            });
+            //if options not provided, do nothing
             return;
         }
         if (Object.keys(options).length === 2) {
@@ -130,7 +127,7 @@ export default class App extends React.Component {
         //       console.log(response.data);
         //   })
           .catch((error) => {
-              console.log(error);
+              throw error;
           });
     }
 
@@ -140,7 +137,7 @@ export default class App extends React.Component {
               callback(response.data);
           })
           .catch((error) => {
-              console.log(error);
+              throw error;
           });
     }
 
@@ -150,7 +147,7 @@ export default class App extends React.Component {
               callback(response.data);
           })
           .catch((error) => {
-              console.log(error);
+              throw error;
           });
     }
 
@@ -163,7 +160,6 @@ export default class App extends React.Component {
                         <Price 
                             originalPrice={this.state.originalPrice}
                             discountedPrice={this.state.discountedPrice}/>
-                        <div id='sectionDivider1'></div>
                         <Selection
                             category={this.state.group.category} 
                             items={this.state.items}
