@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import SelectionEntry from './SelectionEntry.jsx';
-import { selectOption } from '../action/index';
+import { selectOption, selectQuantity } from '../action/index';
 
 class Selection extends React.Component {
     
@@ -20,7 +20,7 @@ class Selection extends React.Component {
                 {<SelectionEntry 
                     key={'quantity'} 
                     option={quantityArray}
-                    selectOption={this.props.selectOption}
+                    selectOption={this.props.selectQuantity}
                 />}
             </div>
            
@@ -69,7 +69,10 @@ const  mapStateToProps = (state) => {
 };
 
 const matchDispatchToProps = (dispatch) => {
-    return bindActionCreators({selectOption: selectOption}, dispatch);
+    return bindActionCreators({ 
+        selectOption: selectOption,
+        selectQuantity: selectQuantity
+    }, dispatch);
 };
 
 export default connect(

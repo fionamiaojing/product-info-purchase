@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const SelectionEntry = ({option, selectOption}) => {
     let property = Object.keys(option)[0];
     let value;
