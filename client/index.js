@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import './style.css';
 import App from './components/App.jsx';
+import allReducers from './redux/reducer/index';
+
 
 let pid = document.URL.match(/\/[\w]+\/([\d]+)/)[1];
 
-ReactDOM.render(<App pid={pid}/>, document.getElementById('app'));
+const store = createStore(
+    allReducers
+);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App pid={pid}/>
+    </Provider>,
+    document.getElementById('app')
+);

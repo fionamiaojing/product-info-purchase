@@ -7,6 +7,8 @@ import PeopleWant from './PeopleWant.jsx';
 import Overview from './Overview.jsx';
 import Shipping from './Shipping.jsx';
 
+import App2 from '../redux/components/App.jsx';
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -191,6 +193,7 @@ export default class App extends React.Component {
                         pid={this.props.pid}/>
                 </div>
                 <hr/>
+                <App2 />
             </div>
         );
     }
