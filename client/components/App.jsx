@@ -122,7 +122,7 @@ export default class App extends React.Component {
     }
 
     send(cartItem) {
-        axios.post(`/listing/${this.props.pid}/cart/${this.state.username}`, cartItem)
+        axios.post(`/listing/cart/${this.state.username}`, cartItem)
         //   .then((response) => {
         //       console.log(response.data);
         //   })
@@ -142,7 +142,7 @@ export default class App extends React.Component {
     }
 
     fetchShippingInfo(callback) {
-        axios.get(`/listing/${this.props.pid}/shippingInfo`)
+        axios.get(`/listing/shippingInfo/${this.props.pid}`)
           .then((response) => {
               callback(response.data);
           })

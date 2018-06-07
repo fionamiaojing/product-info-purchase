@@ -8,9 +8,7 @@ app.use(express.json());
 app.use('/listing/:id', express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
-app.post('/listing/:id/cart/:userID', (req, res) => {
-    console.log(req.body);
-    console.log(req.params.userID);
+app.post('/listing/cart/:userID', (req, res) => {
     helper.saveToCartDatabase( 
         req.params.userID, 
         req.body
@@ -44,7 +42,7 @@ app.get('/listing/item/:id', (req, res) => {
 });
 
 //GET request when customer request for shipping info
-app.get('/listing/:id/shippingInfo', (req, res) => {
+app.get('/listing/shippingInfo/:id', (req, res) => {
     helper.fetchShippingInfo(req.params.id)
       .then((data) => {
           res.status(200).send(data[0]);
@@ -54,7 +52,7 @@ app.get('/listing/:id/shippingInfo', (req, res) => {
       });
 });
 
-app.get('/listing/:id/shippingCost/:departure/:destination', (req, res) => {
+app.get('/listing/shippingCost/:departure/:destination', (req, res) => {
     //get product data based on the fake_groupID
     helper.fetchShippingCost(req.params.departure, req.params.destination)
       .then((data) => {
