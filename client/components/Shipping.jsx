@@ -98,23 +98,26 @@ export default class Shipping extends React.Component {
         return (
             <div id='shipping'>
                 <div id='shippingDays' className='shippingInfo'>
-                    {`Made just for you. Ready to ship in 
-                    ${this.props.shippingInfo['min_days']} – 
-                    ${this.props.shippingInfo['max_days']} days.`}
+                    { `Made just for you. Ready to ship in 
+                    ${ this.props.shippingInfo['min_days'] } – 
+                    ${ this.props.shippingInfo['max_days'] } days.` }
                 </div>
                 <div className='shippingInfo'>
-                    From {this.props.shippingInfo.country}
+                    From { this.props.shippingInfo.country }
                 </div>
                 <div className='shippingInfo'>
                     <a href="#country" onClick={this.handleClick}>
-                        {this.state.shippingCost ? 
-                        `$${this.state.shippingCost} shipping to 
-                        ${this.state.selectedCountry} ${this.state.zipCode}` :
-                        'Get Shopping Cost'
+                        { Number.isFinite(this.state.shippingCost) 
+                            ? ( this.state.shippingCost === 0 )
+                            ? `Free shipping to 
+                            ${this.state.selectedCountry} ${this.state.zipCode} ` 
+                            : `$${this.state.shippingCost} shipping to 
+                            ${this.state.selectedCountry} ${this.state.zipCode}` :
+                            'Get Shopping Cost'
                         }
                     </a>
                 </div>
-                <div style={{display: this.state.displayCountry}}>
+                <div style={{ display: this.state.displayCountry }}>
                     <div id='country'>
                         Country
                         <div>
@@ -123,25 +126,27 @@ export default class Shipping extends React.Component {
                                 onChange={this.handleCountryChange}
                             >
                                 <option value="none">Choose Country</option>
-                                {this.state.destinCountry.map((country) => 
-                                    <option value={country} key={country}>{country}</option>
+                                { this.state.destinCountry.map((country) => 
+                                    <option value={ country } key={ country }>
+                                        { country }
+                                    </option>
                                 )}
                                 
                             </select>
                         </div>
                     </div>
-                    <div id='zip' style={{display: this.state.displayZip}}>
+                    <div id='zip' style={{ display: this.state.displayZip }}>
                         Zip or postal code
                         <div>
                             <input 
                                 id='zipSelect'
                                 type="text" 
-                                onChange={this.handleZipChange}
+                                onChange={ this.handleZipChange }
                             />
                         </div>
                         <div 
                             id='zipError' 
-                            style={{display: this.state.displayErrorMessage}}>
+                            style={{ display: this.state.displayErrorMessage }}>
                             Please enter a valid zip code
                         </div>
                     </div>
@@ -151,7 +156,7 @@ export default class Shipping extends React.Component {
                 </div>
                 <div id='return'>
                     <strong>Returns and exchanges accepted</strong><br/>
-                    {'Exceptions may apply. '}
+                    { 'Exceptions may apply. ' }
                     <a href="">See return policy</a>  
                 </div>
             </div>
