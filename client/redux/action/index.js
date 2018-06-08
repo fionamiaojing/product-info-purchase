@@ -18,9 +18,17 @@ export const selectQuantity = (property, choice) => {
     };
 };
 
-export const displayError = (bool) => {
+export const displayError = bool => {
     return {
         type: 'DISPLAY_ERROR',
         payload: bool
+    };
+};
+
+export const receiveProductData = response => {
+    console.log(response);
+    return {
+        type: 'RECEIVE_PRODUCT_DATA',
+        payload: response
     };
 };

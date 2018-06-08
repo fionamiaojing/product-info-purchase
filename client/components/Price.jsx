@@ -7,32 +7,49 @@ export default class Price extends React.Component {
         super(props);
     }
 
-    render() {
-        let priceTag;
-        //conditional rendering
-        if (_.isEqual(this.props.originalPrice, this.props.discountedPrice)) {
-            priceTag = <span id="discountPrice">${this.props.discountedPrice[0]} </span>;
-        } else if (this.props.discountedPrice.length === 1 &&
-            this.props.originalPrice.length === 1) {
-            let discount = 100 - Math.round(
-                this.props.discountedPrice[0] /
-                this.props.originalPrice[0] * 100
-            );
-            priceTag = <span>
-                            <span id="discountPrice">${this.props.discountedPrice[0]} </span>
-                            <strike id="originalPrice">${this.props.originalPrice[0]}</strike>
-                            <p id="saving">You save $
-                            {this.props.originalPrice[0] - this.props.discountedPrice[0]} 
-                            ({discount}%)</p>
-                       </span>;
+    renderPriceTag() {
+        let minDiscPrice = Math.min(...this.props.discountedPrice);
+        let minOrgPrice = Math.min(...this.props.originalPrice);
+        if (minDiscPrice === minOrgPrice) {
+            //scenario 1 - only one discounted price
+            if (this.props.discountedPrice.length === 1) {
+                return (
+                    <span id="discountPrice">
+                        ${minDiscPrice} 
+                    </span>
+                );
+            //scenario 2 - still multiple discounted price
+            } else {
+
+                return (
+                    <span id="discountPrice">
+                        ${minDiscPrice}+
+                    </span>
+                );
+            }
         } else {
-            priceTag = <span id="discountPrice">${this.props.discountedPrice[0]}+ </span>;
+            let discountPerc = 100 - Math.round(
+                minDiscPrice/minOrgPrice * 100
+            );
+            let discountAmnt = minOrgPrice - minDiscPrice;
+            
+            return (
+                <span>
+                    <span id="discountPrice">
+                        ${minDiscPrice} 
+                    </span>
+                    <strike id="originalPrice"> ${minOrgPrice}</strike>
+                    <p id="saving">You save ${discountAmnt} ({discountPerc}%)</p>
+                </span>
+            );  
         }
-    
+    }
+
+    render() {
         return (
             <div id="price">
                 <AskQuestion />
-                {priceTag}
+                {this.renderPriceTag()}
             </div>
         );  
     }

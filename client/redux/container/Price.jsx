@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import AskQuestion from '../../components/PopUp.jsx';
+import AskQuestion from '../components/PopUp.jsx';
 
 
 class Price extends React.Component {

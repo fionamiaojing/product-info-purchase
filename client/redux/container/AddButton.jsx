@@ -10,8 +10,9 @@ class AddButton extends React.Component {
         // console.log(this.props.selectedItem);
         // console.log(this.props.quantity);
         return (
-            <button 
-                className='buttons' id="add" 
+            <div>
+                <button 
+                className='buttons' id="buy" 
                 onClick={() => {
                     if (!this.props.selectedItem) {
                         //call error function
@@ -23,9 +24,26 @@ class AddButton extends React.Component {
                         );
                     }
                 }}
-            >
-                Add to cart
-            </button>
+                >
+                    Buy it now >
+                </button>
+                <button 
+                    className='buttons' id="add" 
+                    onClick={() => {
+                        if (!this.props.selectedItem) {
+                            //call error function
+                            this.props.displayError(true);
+                        } else {
+                            handleClick(
+                                this.props.selectedItem,
+                                this.props.quantity
+                            );
+                        }
+                    }}
+                >
+                    Add to cart
+                </button>
+            </div>
         );
     }
 }
