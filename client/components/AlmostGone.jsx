@@ -36,7 +36,7 @@ export default class AlmostGone extends React.Component {
                 <div className="bottomCell">
                     <span>
                         <strong>Almost gone. </strong>
-                        There's only 3 left.
+                        There's only {this.props.amount} left.
                     </span>
                 </div>
             </div>
