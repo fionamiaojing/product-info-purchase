@@ -13,8 +13,9 @@ class Selection extends React.Component {
                     <SelectionEntry 
                         key={Object.keys(option)[0]} 
                         option={option}
+                        userChoice={this.props.userChoice}
                         selectOption={this.props.selectOption}
-                        // displayError={this.props.displayError}
+                        displayError={this.props.displayError}
                     />
                 )}
                 {<SelectionEntry 
@@ -62,9 +63,11 @@ const fetchProperty = (property, items) => {
     ));
 };
 
-const  mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-        options: mappingOptions(state.group.category, state.allItems)
+        options: mappingOptions(state.group.category, state.allItems),
+        userChoice: state.optionChoice,
+        displayError: state.displayError
     };
 };
 
@@ -79,3 +82,4 @@ export default connect(
     mapStateToProps,
     matchDispatchToProps
 )(Selection);
+

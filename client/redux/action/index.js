@@ -17,3 +17,10 @@ export const selectQuantity = (property, choice) => {
         }
     };
 };
+
+export const displayError = (bool) => {
+    return {
+        type: 'DISPLAY_ERROR',
+        payload: bool
+    };
+};

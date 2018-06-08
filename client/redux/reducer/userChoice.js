@@ -9,7 +9,7 @@ export const optionChoice = (state = {}, action) => {
     }
 };
 
-export const quantityChoice = (state = {}, action) => {
+export const quantityChoice = (state = {quantity: 1}, action) => {
     switch (action.type) {
         case 'SELECT_QUANTITY':
             let newInput = {};

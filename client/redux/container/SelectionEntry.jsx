@@ -1,12 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const SelectionEntry = ({option, selectOption}) => {
+const SelectionEntry = ({
+        option, selectOption, 
+        userChoice, displayError
+    }) => {
     let property = Object.keys(option)[0];
-    let value;
 
     const handleSelect = (e) => {
-        value = e.target.value;
-        selectOption(property, value);
+        selectOption(property, e.target.value);
     };
     
     return (
@@ -18,7 +20,6 @@ const SelectionEntry = ({option, selectOption}) => {
                 <div>
                     <select 
                         id ='optionSelect'
-                        value={value}
                         onChange={(e) => handleSelect(e)}
                     >
                         {property === "quantity" 
@@ -36,13 +37,14 @@ const SelectionEntry = ({option, selectOption}) => {
                     </select>
                 </div>
             </span>
-            {/* <div 
+            <div 
                 id="errorSelection" 
                 style={{ display: 
-                    (this.props.displayError && this.state.value === 'none') ? 
-                    'block' : 'none'}}
-            >Please select a {this.state.key}
-            </div> */}
+                    (displayError
+                        && (userChoice[property] === 'none' || !userChoice[property]) )
+                    ? 'block' : 'none'}}
+            >Please select a {property}
+            </div>
         </div>
     );
 };
