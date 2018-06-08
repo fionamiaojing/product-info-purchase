@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux';
 import { groupItems } from './products';
 import { allItems } from './allitems';
-import { optionChoice, quantityChoice } from './userChoice';
-import { displayError } from './displayError';
+import { optionChoice, quantityChoice, 
+        destination, zipcode } from './userChoice';
+import { displayError, displayErrorMessage } from './displayError';
+import { shippingInfo, shippingCost } from './shippingInfo';
+import { displayCountry, displayZipcode } from './displayCtry&Zip';
 
 const allReducers = combineReducers({
     group: groupItems,
@@ -10,6 +13,13 @@ const allReducers = combineReducers({
     optionChoice: optionChoice,
     quantityChoice: quantityChoice,
     displayError: displayError,
+    shippingInfo: shippingInfo,
+    shippingCost: shippingCost,
+    displayCountry: displayCountry,
+    displayZipcode: displayZipcode,
+    destination: destination,
+    zipcode: zipcode,
+    displayErrorMessage: displayErrorMessage,
 });
 
 export default allReducers;

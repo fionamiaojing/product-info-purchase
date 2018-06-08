@@ -19,3 +19,21 @@ export const quantityChoice = (state = {quantity: 1}, action) => {
             return state;
     }
 };
+
+export const destination = (state = '', action) => {
+    switch (action.type) {
+        case 'SELECT_COUNTRY':
+            return action.payload;
+        default:
+            return state;
+    }
+};
+
+export const zipcode = (state = '', action) => {
+    switch (action.type) {
+        case 'ENTER_ZIPCODE':
+            return action.payload;
+        default:
+            return state;
+    }
+};
