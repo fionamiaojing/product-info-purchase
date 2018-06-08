@@ -1,6 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import { displayError } from '../action/index';
 
 
@@ -77,10 +78,21 @@ const detectSelectedItem = (category, items, option) => {
     );
 };
 
-const handleClick = (selectedItem, quantity) => {
-    console.log(selectedItem, quantity);
+const userID = 'hrsf950001';
+
+const handleClick = (selectedItem, {quantity}) => {
+    send({
+        itemId: selectedItem,
+        quantity:  quantity 
+    });
 };
 
+const send = (cartItem)  => {
+    axios.post(`/listing/cart/${userID}`, cartItem)
+      .catch((error) => {
+          throw error;
+      });
+};
 
 const mapStateToProps = (state) => {
     return {
