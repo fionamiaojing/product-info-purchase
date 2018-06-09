@@ -7,7 +7,7 @@ const staticURL = '/purchase';
 
 app.use(express.json());
 //make html request like http://localhost:3003/purchase/id
-app.use(staticURL + '/:id', express.static(__dirname + '/../public'));
+app.use('/listing/:id', express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button
 app.post(staticURL + '/cart/:userID', (req, res) => {
