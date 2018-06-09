@@ -27,7 +27,9 @@
     "postcode-validator": "^1.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "reactjs-popup": "^1.1.1",
+    "redux": "^4.0.0",
     "webpack": "^3.11.0"
   },
   "devDependencies": {
@@ -43,6 +45,7 @@
     "jest": "^22.4.4",
     "nodemon": "^1.17.5",
     "react-test-renderer": "^16.4.0",
+    "redux-devtools": "^3.4.1",
     "style-loader": "^0.21.0"
   }
 }
