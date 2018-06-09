@@ -3,10 +3,10 @@ const helper = require('./helper.js');
 
 const app = express();
 
-const staticURL = '/app3/listing';
+const staticURL = '/purchase';
 
 app.use(express.json());
-//make html request like http://localhost:3003/?=1001
+//make html request like http://localhost:3003/purchase/id
 app.use(staticURL + '/:id', express.static(__dirname + '/../public'));
 
 //POST request when customer hit add to cart button

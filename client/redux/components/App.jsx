@@ -19,7 +19,7 @@ class App extends React.Component {
     }
 
     fetchProduct() {
-        axios.get(`/app3/listing/item/${pid}`)
+        axios.get(`/purchase/item/${pid}`)
           .then((response) => {
               this.props.receiveProductData(response.data);
           })
@@ -29,7 +29,7 @@ class App extends React.Component {
     }
 
     fetchShippingInfo() {
-        axios.get(`/app3/listing/shippingInfo/${pid}`)
+        axios.get(`/purchase/shippingInfo/${pid}`)
           .then((response) => {
               this.props.receiveShippingInfo(response.data);
           })
