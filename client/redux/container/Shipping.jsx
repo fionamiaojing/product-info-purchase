@@ -48,7 +48,7 @@ class Shipping extends React.Component {
     }
 
     fetchShippingCost(departure, destination) {
-        axios.get(`/listing/shippingCost/${departure}/${destination}`)
+        axios.get(`/app3/listing/shippingCost/${departure}/${destination}`)
           .then((response) => {
                 //display shipping cost info
                 this.props.receiveShippingCost(response.data);
