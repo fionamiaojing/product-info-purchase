@@ -6,6 +6,7 @@ import { toggleDisplayCountry, toggleDisplayZipcode,
         toggleDisplayErrorMessage } from '../action/index';
 import axios from 'axios';
 import postcode from 'postcode-validator';
+import styles from '../../style.css';
 
 class Shipping extends React.Component {
 
@@ -80,18 +81,21 @@ class Shipping extends React.Component {
 
     render() {
         return (
-            <div id='shipping'>
-                <h2>Shipping & returns</h2>
-                <div id='shippingDays' className='shippingInfo'>
+            <div id={styles.shipping}>
+                <h2 className={styles.h2}>Shipping & returns</h2>
+                <div id={styles.shippingDays} className={styles.shippingInfo}>
                     { `Made just for you. Ready to ship in 
                     ${ this.props.shippingInfo['min_days'] } – 
                     ${ this.props.shippingInfo['max_days'] } days.` }
                 </div>
-                <div className='shippingInfo'>
+                <div className={styles.shippingInfo}>
                     From { this.props.shippingInfo.country }
                 </div>
-                <div className='shippingInfo'>
-                    <a href="#country" onClick={() => this.handleClick()}>
+                <div className={styles.shippingInfo}>
+                    <a 
+                        className={styles.a}
+                        href="#country" 
+                        onClick={() => this.handleClick()}>
                         { this.displayCost(
                             this.props.destination,
                             this.props.zipCode,
@@ -101,11 +105,11 @@ class Shipping extends React.Component {
                     </a>
                 </div>
                 <div style={{ display: this.props.displayCountry }}>
-                    <div id='country'>
+                    <div id={styles.country}>
                         Country
                         <div>
                             <select 
-                                id ='countrySelect'
+                                id ={styles.countrySelect}
                                 value={this.props.destination}
                                  onChange={(e) => this.handleCountryChange(e)}
                             >
@@ -119,30 +123,30 @@ class Shipping extends React.Component {
                             </select>
                         </div>
                     </div>
-                    <div id='zip' style={{ display: this.props.displayZipcode }}>
+                    <div id={styles.zip} style={{ display: this.props.displayZipcode }}>
                         Zip or postal code
                         <div>
                             <input 
-                                id='zipSelect'
+                                id={styles.zipSelect}
                                 type="text"
                                 onChange={(e) => this.handleZipChange(e)}
                             />
                         </div>
                         <div 
-                            id='zipError' 
+                            id={styles.zipError} 
                             style={{ display: this.props.displayErrorMessage }}
                         >
                             Please enter a valid zip code
                         </div>
                     </div>
                 </div>
-                <div id='upgrade'>
+                <div id={styles.upgrade}>
                     Shipping upgrades available in the cart
                 </div>
-                <div id='return'>
+                <div id={styles.return}>
                     <strong>Returns and exchanges accepted</strong><br/>
                     { 'Exceptions may apply. ' }
-                    <a href="">See return policy</a>  
+                    <a className={styles.a} href="return">See return policy</a>  
                 </div>
             </div>
         );

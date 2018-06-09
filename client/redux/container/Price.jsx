@@ -2,7 +2,7 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import AskQuestion from '../components/PopUp.jsx';
-
+import styles from '../../style.css';
 
 class Price extends React.Component {
     renderPriceTag() {
@@ -12,7 +12,7 @@ class Price extends React.Component {
             //scenario 1 - only one discounted price
             if (this.props.discountedPrice.length === 1) {
                 return (
-                    <span id="discountPrice">
+                    <span id={styles.discountPrice}>
                         ${minDiscPrice} 
                     </span>
                 );
@@ -20,7 +20,7 @@ class Price extends React.Component {
             } else {
 
                 return (
-                    <span id="discountPrice">
+                    <span id={styles.discountPrice}>
                         ${minDiscPrice}+
                     </span>
                 );
@@ -33,11 +33,11 @@ class Price extends React.Component {
             
             return (
                 <span>
-                    <span id="discountPrice">
+                    <span id={styles.discountPrice}>
                         ${minDiscPrice} 
                     </span>
-                    <strike id="originalPrice"> ${minOrgPrice}</strike>
-                    <p id="saving">You save ${discountAmnt} ({discountPerc}%)</p>
+                    <strike id={styles.originalPrice}> ${minOrgPrice}</strike>
+                    <p id={styles.saving}>You save ${discountAmnt} ({discountPerc}%)</p>
                 </span>
             );  
         }
@@ -45,7 +45,7 @@ class Price extends React.Component {
 
     render() {
         return (
-            <div id="price">
+            <div id={styles.price}>
                 <AskQuestion />
                 {this.renderPriceTag()}
             </div>

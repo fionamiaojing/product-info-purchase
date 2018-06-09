@@ -9,8 +9,9 @@ import Price from '../container/Price.jsx';
 import AddButton from '../container/AddButton.jsx';
 import DisplayHot from '../container/DisplayHot.jsx';
 import Shipping from '../container/Shipping.jsx';
+import styles from '../../style.css';
 
-class App2 extends React.Component {
+class App extends React.Component {
 
     componentDidMount() {
         this.fetchProduct();
@@ -42,8 +43,8 @@ class App2 extends React.Component {
             && this.props.allItems.length
         ) {
             return (
-                <div className="sidebar">
-                    <h1>{this.props.group.title}</h1>
+                <div className={styles.sidebar}>
+                    <h1 className={styles.h1}>{this.props.group.title}</h1>
                     <div>
                         <Price />
                         <Selection />
@@ -85,4 +86,4 @@ const matchDispatchToProps = (dispatch) => {
 export default connect(
     matchStateToProps,
     matchDispatchToProps
-)(App2);
+)(App);

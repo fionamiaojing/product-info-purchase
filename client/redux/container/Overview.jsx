@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styles from '../../style.css';
 
 class Overview extends React.Component {
 
     render () {
         return (
             <div>
-                <h2>Overview</h2>
-                <ul>
+                <h2 className={styles.h2}>Overview</h2>
+                <ul className={styles.ul}>
                     {this.props.overview.handmade ? 
                         <li>Handmade item</li> : ""}
                     <li>
@@ -17,13 +18,13 @@ class Overview extends React.Component {
                         <li>Made to order</li> : ""}
                     <li>
                         {'Feedback: '} 
-                        <a href="#reviews">
+                        <a className={styles.a} href="#reviews">
                             {this.props.reviews} reviews
                         </a>
                     </li>
                     <li>
                         {'Favorited by: '}
-                        <a href="">
+                        <a className={styles.a} href="#people">
                             {this.props.favorite} people
                         </a>
                     </li>

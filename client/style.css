@@ -1,11 +1,12 @@
-.sidebar{
+:local(.sidebar){
     width: 392px;
     font-family: "Graphik Webfont", -apple-system,BlinkMacSystemFont,
                 "Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
     line-height: 20px;
 }
 
-h1, h2 {
+:local(.h1), 
+:local(.h2) {
     font-family: serif;
     width: auto;
     line-height: 1.2em;
@@ -15,7 +16,7 @@ h1, h2 {
 }
 
 /* Ask a Question */
-#ask {
+:local(#ask) {
     float: right;
     width: 113px;
     height: 23px;
@@ -28,23 +29,23 @@ h1, h2 {
 }
 
 /* Price Tag */
-label {
+:local(.label) {
     text-transform: capitalize;
 }
 
-#discountPrice {
+:local(#discountPrice) {
     font-size: 20px;
     font-weight: 700;
     line-height: 28px;
 }
 
-#originalPrice {
+:local(#originalPrice) {
     color: #777;
     font-size: 14.286px;
     font-weight: 400;
 }
 
-#saving {
+:local(#saving) {
     color: #2E8539;
     font-size: 14.286px;
     margin: 0;
@@ -56,13 +57,13 @@ hr {
 }
 
 /* Selection Tag  */
-#selection {
+:local(#selection) {
     color: #222;
     font-size: 14px;
     margin: 14px 0;
 }
 
-#optionSelect {
+:local(#optionSelect) {
     border: 1px solid rgb(166, 166, 166);
     border-radius: 5px;
     font-size: 11px;
@@ -70,7 +71,7 @@ hr {
     height: 20px;
 }
 
-#errorSelection {
+:local(#errorSelection) {
     background-color: rgb(247, 106, 106);
     color: white;
     padding: 6px;
@@ -81,7 +82,7 @@ hr {
 }
 
 /* Buttons for Add-to-cart & Buy-it-now  */
-.buttons {
+:local(.buttons) {
     width: 100%;
     font-size: 15px;
     font-weight: 700;
@@ -92,26 +93,27 @@ hr {
     cursor: pointer;
 }
 
-#buy {
+:local(#buy) {
     border: 2px solid rgb(245, 100, 0);
     color: rgb(245, 100, 0); 
 }
 
-#buy:hover, #add {
+:local(#buy:hover), 
+:local(#add) {
     background-color: rgb(245, 100, 0);
     color: white;
 }
 
-#add:hover {
+:local(#add:hover) {
     background-color: rgba(245, 100, 0, 0.932); 
 }
 
 /* Bottom part for People Want & Almost Gone  */
-#bottom {
+:local(#bottom) {
     display: table;
 }
 
-.bottomCell {
+:local(.bottomCell) {
     display: table-cell;
     vertical-align: middle;
 }
@@ -121,44 +123,44 @@ svg {
 }
 
 /* Overview  */
-h2 {
+:local(.h2) {
     margin-bottom: 5px;
     font-size: 18px;
     font-weight: 700;
 }
 
-ul {
+:local(.ul) {
     margin: 0;
     padding-left: 20px;
     font-size: 14px;
 }
 
-a {
+:local(.a) {
     color: rgb(229, 84, 0);
 }
 
 
 /* Shipping */
-#shipping {
+:local(#shipping) {
     font-size: 14px;
 }
 
-#shippingDays {
+:local(#shippingDays) {
     font-weight: 700;  
 }
 
-.shippingInfo {
+:local(.shippingInfo) {
     margin: 6px 0;
 }
 
-#country {
+:local(#country) {
     float: left;
     margin: 12px 0;
     padding: 0 18px;
     font-size: 12px;
 }
 
-#countrySelect {
+:local(#countrySelect) {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     font-size: 14px;
@@ -168,14 +170,14 @@ a {
     width: 162px;
 }
 
-#zip {
+:local(#zip) {
     margin: 12px 0;
     padding: 0 6px;
     float: left;
     font-size: 12px;
 }
 
-#zipSelect {
+:local(#zipSelect) {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     font-size: 14px;
@@ -184,7 +186,7 @@ a {
     width: 135px;
 }
 
-#upgrade {
+:local(#upgrade) {
     color: #777;
     font-size: 12px;
     line-height: 16.8px;
@@ -192,17 +194,17 @@ a {
     clear: left;
 }
 
-#return {
+:local(#return) {
     margin-top: 18px;
 }
 
-#zipError {
+:local(#zipError) {
     color: rgb(193, 60, 39)
 }
 
 /* PopUp window for ask a question */
 
-#popUp {
+:local(#popUp) {
     width: 500px;
     margin: 0;
     position: fixed;
@@ -213,7 +215,7 @@ a {
     background-color: #F5F5F1;
 }
 
-.header {
+:local(.header) {
     padding: 17px 21px;
     border: 1px solid  rgb(166, 166, 166);
     border-top-left-radius: 5px;
@@ -221,20 +223,20 @@ a {
     
 }
 
-.contactor {
+:local(.contactor) {
     color:  rgb(166, 166, 166)
 }
 
-.body {
+:local(.body) {
     padding: 19px 21px;
     background-color: white;
 }
 
-#content {
+:local(#content) {
     margin-left: 90px;
 }
 
-#square {
+:local(#square) {
     float: left;
     width: 60px;
     height: 60px;
@@ -243,7 +245,7 @@ a {
     background-color: rgb(166, 166, 166)
 }
 
-#questionName {
+:local(#questionName) {
     border: 1px solid  rgb(166, 166, 166);
     border-radius: 3px;
     display: inline-block;
@@ -251,7 +253,7 @@ a {
     padding: 10px;
 }
 
-textarea {
+:local(.textarea) {
     margin-top: 8px;
     width: 345px;
     padding: 10px;
@@ -261,7 +263,7 @@ textarea {
     display: inline-block;
 }
 
-.footer {
+:local(.footer) {
     height: 34;
     padding: 13px 21px;
     border-top: 1px solid rgb(166, 166, 166);
@@ -269,8 +271,8 @@ textarea {
     border-bottom-left-radius: 5px;
 }
 
-#send,
-#cancel {
+:local(#send),
+:local(#cancel) {
     width: 79px;
     height: 33px;
     padding: 7px 15px;
@@ -281,7 +283,7 @@ textarea {
     font-weight: 600;
 }
 
-#send {
+:local(#send) {
     background-color:  rgb(245, 100, 0);
     margin-left: 290px;
     margin-right: 10px;

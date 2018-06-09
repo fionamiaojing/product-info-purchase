@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../../style.css';
 
 const AlmostGone = ({numberInStorage}) => {
     return (
         <div>
-            <div className="bottomCell">
+            <div className={styles.bottomCell}>
                 <svg viewBox="0 0 48 48" height="48" width="48" aria-hidden="true" focusable="false">
                     <path 
                         fill="#333333" 
@@ -28,7 +29,7 @@ const AlmostGone = ({numberInStorage}) => {
                     </path>
                 </svg>
             </div>
-            <div className="bottomCell">
+            <div className={styles.bottomCell}>
                 <span>
                     <strong>Almost gone. </strong>
                     There's only {numberInStorage} left.

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { displayError } from '../action/index';
-
+import styles from '../../style.css';
 
 class AddButton extends React.Component {
 
@@ -13,7 +13,7 @@ class AddButton extends React.Component {
         return (
             <div>
                 <button 
-                className='buttons' id="buy" 
+                className={styles.buttons} id={styles.buy} 
                 onClick={() => {
                     if (!this.props.selectedItem) {
                         //call error function
@@ -29,7 +29,7 @@ class AddButton extends React.Component {
                     Buy it now >
                 </button>
                 <button 
-                    className='buttons' id="add" 
+                    className={styles.buttons} id={styles.add} 
                     onClick={() => {
                         if (!this.props.selectedItem) {
                             //call error function
