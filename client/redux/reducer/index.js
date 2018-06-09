@@ -5,7 +5,7 @@ import { optionChoice, quantityChoice,
         destination, zipcode } from './userChoice';
 import { displayError, displayErrorMessage } from './displayError';
 import { shippingInfo, shippingCost } from './shippingInfo';
-import { displayCountry, displayZipcode } from './displayCtry&Zip';
+import { displayCountry, displayZipcode } from './displayCtryANDZip';
 
 const allReducers = combineReducers({
     group: groupItems,
