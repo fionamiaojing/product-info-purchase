@@ -1,6 +1,6 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
-
+import styles from '../../style.css';
 
 export default class AskQuestion extends React.Component{
     constructor(props) {
@@ -28,7 +28,7 @@ export default class AskQuestion extends React.Component{
         return (
             <div>
                 <button 
-                    id="ask"
+                    id={styles.ask}
                     onClick={this.openModal}
                 >
                     Ask a question
@@ -38,30 +38,31 @@ export default class AskQuestion extends React.Component{
                     closeOnDocumentClick
                     onClose={this.closeModal}
                 >
-                    <div id="popUp">
-                        <div className='header'>
-                            <h2>New Conversation</h2>
-                            <span className='contactor'>with Nikolas from ColorHomeDecor</span>
+                    <div id={styles.popUp}>
+                        <div className={styles.header}>
+                            <h2 className={styles.h2}>New Conversation</h2>
+                            <span className={styles.contactor}>with Nikolas from ColorHomeDecor</span>
                         </div>
-                        <div className='body'>
+                        <div className={styles.body}>
                             <div>
-                                <div id='square'></div>
+                                <div id={styles.square}></div>
                             </div>
-                            <div id="content">
+                            <div id={styles.content}>
                                 <input 
-                                    id="questionName" 
+                                    id={styles.questionName} 
                                     type="text"
                                     placeholder="Item name here..."
                             /><br/>
                                 <textarea 
+                                    className={styles.textarea}
                                     cols="30" rows="10"
                                     placeholder="Your questions here..."
                                 ></textarea>
                             </div>
                         </div>
-                        <div className='footer'>
-                            <button id='send' onClick={this.closeModal}>Send</button>
-                            <button id='cancel' onClick={this.closeModal}>Cancel</button>
+                        <div className={styles.footer}>
+                            <button id={styles.send} onClick={this.closeModal}>Send</button>
+                            <button id={styles.cancel} onClick={this.closeModal}>Cancel</button>
                         </div>
                     </div>
                 </Popup>

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../style.css';
 
 const SelectionEntry = ({
         option, selectOption, 
@@ -11,14 +12,14 @@ const SelectionEntry = ({
     };
     
     return (
-        <div id="selection">
-            <label>
+        <div id={styles.selection}>
+            <label className={styles.label}>
                 {property}
             </label>
             <span>
                 <div>
                     <select 
-                        id ='optionSelect'
+                        id ={styles.optionSelect}
                         onChange={(e) => handleSelect(e)}
                     >
                         {property === "quantity" 
@@ -37,7 +38,7 @@ const SelectionEntry = ({
                 </div>
             </span>
             <div 
-                id="errorSelection" 
+                id={styles.errorSelection}
                 style={{ display: 
                     (displayError
                         && (userChoice[property] === 'none' || !userChoice[property]) )

@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../../style.css';
 
 const PeopleWant = ({numberInCart}) => {
     return (
         <div>
-            <div className="bottomCell">
+            <div className={styles.bottomCell}>
                 <svg height="48" width="48" aria-hidden="true" focusable="false">
                     <path fill="#FFAC5D" d="M19,33h20l5-18H15"></path>
                     <path fill="#333333" 
@@ -19,7 +20,7 @@ const PeopleWant = ({numberInCart}) => {
                     <line fill="none" stroke="#333333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" x1="21" y1="8" x2="24" y2="11.1"></line>
                 </svg>
             </div>
-            <div className="bottomCell">
+            <div className={styles.bottomCell}>
                 <span>
                     <strong>Other people want this. </strong>
                     {numberInCart > 20 ? 
