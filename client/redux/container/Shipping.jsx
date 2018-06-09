@@ -32,6 +32,8 @@ class Shipping extends React.Component {
             this.props.toggleDisplayZipcode(false);
         } else {
             //display zip code
+            this.props.selectCountry(e.target.value);
+            this.props.enterZipcode('');
             this.props.toggleDisplayZipcode(true);
         }
     }
@@ -69,15 +71,19 @@ class Shipping extends React.Component {
         if (destination !== 'United States') {
             zipcode = '';
         }
+        if (destination === "United States" && zipcode === '') {
+            return lastTimeDisplay;
+        }
         if (cost === 0) {
-            return `Free shipping to ${destination} ${zipcode} `;
+            lastTimeDisplay = `Free shipping to ${destination} ${zipcode} `;
+            return lastTimeDisplay;
         }
         if (cost > 0) {
-            return `$${cost} shipping to ${destination} ${zipcode}`; 
+            lastTimeDisplay = `$${cost} shipping to ${destination} ${zipcode}`;
+            return lastTimeDisplay; 
         }
         return 'Get Shipping Cost';
     }
-
 
     render() {
         return (
@@ -158,6 +164,7 @@ const destinCountry = ['United States', 'China', 'Russia',
                         'Japan', 'France', 'Thailand', 'Sweden',
                         'Malaysia', 'Portugal','Bulgaria', 'Indonesia'];
 
+let lastTimeDisplay = 'Get Shipping Cost';
 
 const matchStateToProps = (state) => {
     return {
