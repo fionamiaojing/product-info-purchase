@@ -56,7 +56,7 @@ From within the root directory:
 
 ```sh
 npm run start
-open localhost:3003/{staticURL}/:id (from 1001 to 1100)
+open localhost:3003/listing/:id (from 1001 to 1100)
 
 ```
 
