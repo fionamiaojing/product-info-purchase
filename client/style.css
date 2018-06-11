@@ -105,7 +105,7 @@ hr {
 }
 
 :local(#add:hover) {
-    background-color: rgba(245, 100, 0, 0.932); 
+    background-color: #ff6905; 
 }
 
 /* Bottom part for People Want & Almost Gone  */
@@ -204,8 +204,21 @@ svg {
 
 /* PopUp window for ask a question */
 
+:local(.popupOverlay) {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+    
+}
+
 :local(#popUp) {
-    width: 500px;
+    width: auto;
     margin: 0;
     position: fixed;
     top: 50%;
@@ -213,18 +226,18 @@ svg {
     transform: translate(-50%, -50%);
     border-collapse: collapse;
     background-color: #F5F5F1;
+    border-radius: 5px;
+    border: 1px solid  rgb(166, 166, 166);
 }
+
 
 :local(.header) {
     padding: 17px 21px;
-    border: 1px solid  rgb(166, 166, 166);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    
+    border-bottom: 1px solid  rgb(166, 166, 166);
 }
 
 :local(.contactor) {
-    color:  rgb(166, 166, 166)
+    color:  rgb(166, 166, 166);
 }
 
 :local(.body) {
@@ -267,8 +280,6 @@ svg {
     height: 34;
     padding: 13px 21px;
     border-top: 1px solid rgb(166, 166, 166);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
 }
 
 :local(#send),
@@ -289,3 +300,4 @@ svg {
     margin-right: 10px;
     color: white
 }
+
