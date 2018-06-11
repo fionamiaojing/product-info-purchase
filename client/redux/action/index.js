@@ -92,18 +92,14 @@ export const receiveShippingCost = ({cost}) => {
 export const fetchShippingCost = (departure, destination) => {
     return function(dispatch) {
         axios.get(`/purchase/shippingCost/${departure}/${destination}`)
-          .then((response) => dispatch(
-              receiveShippingCost(response.data)
-          ))
-          .then(() => dispatch(
-            selectCountry(destination)
-          ))
-          .then(() => dispatch(
-            toggleDisplayCountry(false)
-          ))
-          .then(() => dispatch(
-            toggleDisplayErrorMessage(false)
-          ))
+          .then((response) =>
+            dispatch( receiveShippingCost(response.data) )
+           )
+          .then(() => {
+            dispatch( selectCountry(destination) ); 
+            dispatch( toggleDisplayCountry(false)) ;
+            dispatch( toggleDisplayErrorMessage(false) );
+          })
           .catch((error) => {
               throw error;
           });
