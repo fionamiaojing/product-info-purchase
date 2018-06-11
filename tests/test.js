@@ -4,11 +4,12 @@ import { configure } from 'enzyme';
 import jest from 'jest-mock';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import App from '../client/components/App.jsx';
-import Price from '../client/components/Price.jsx';
-import Selection from '../client/components/Selection.jsx';
-import SelectionEntry from '../client/components/SelectionEntry.jsx';
-import Overview from '../client/components/Overview.jsx';
+import App from '../client/redux/components/App.jsx';
+import Price from '../client/redux/container/Price.jsx';
+import Selection from '../client/redux/container/Selection.jsx';
+import SelectionEntry from '../client/redux/container/SelectionEntry.jsx';
+import Overview from '../client/redux/container/Overview.jsx';
+import styles from '../client/style.css';
 
 import data from './testData.js';
 
