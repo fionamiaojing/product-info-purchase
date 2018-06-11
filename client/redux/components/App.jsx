@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchProductData, fetchShippingInfo,
-        receiveProductData, receiveShippingInfo } from '../action/index';
+import { fetchProductData, fetchShippingInfo } from '../action/index';
 import Selection from '../container/Selection.jsx';
 import Overview from '../container/Overview.jsx';
 import Price from '../container/Price.jsx';
@@ -15,7 +14,6 @@ import styles from '../../style.css';
 class App extends React.Component {
 
     componentDidMount() {
-        // this.fetchProduct();
         this.props.fetchProductData(pid);
         this.props.fetchShippingInfo(pid);
     }
@@ -62,8 +60,6 @@ const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({ 
         fetchProductData: fetchProductData,
         fetchShippingInfo: fetchShippingInfo,
-        receiveProductData: receiveProductData,
-        receiveShippingInfo: receiveShippingInfo
     }, dispatch);
 };
 

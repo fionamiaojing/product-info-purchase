@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleDisplayCountry, toggleDisplayZipcode, 
-        receiveShippingCost, selectCountry, enterZipcode, 
-        fetchShippingCost, toggleDisplayErrorMessage } from '../action/index';
+        selectCountry, enterZipcode, fetchShippingCost, 
+        toggleDisplayErrorMessage } from '../action/index';
 import axios from 'axios';
 import postcode from 'postcode-validator';
 import styles from '../../style.css';
@@ -169,7 +169,6 @@ const matchDispatchToProps = (dispatch) => {
         toggleDisplayErrorMessage: toggleDisplayErrorMessage,
         enterZipcode: enterZipcode,
         fetchShippingCost: fetchShippingCost,
-        receiveShippingCost: receiveShippingCost
     }, dispatch);
 };
 
