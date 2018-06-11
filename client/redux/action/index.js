@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const selectOption = (property, choice) => {
     return {
         type: 'SELECT_OPTION',
@@ -32,10 +34,37 @@ export const receiveProductData = response => {
     };
 };
 
+//try to use middleware
+export const fetchProductData = pid => {
+    return function(dispatch) {
+        axios.get(`/purchase/item/${pid}`)
+          .then((response) => dispatch(
+            receiveProductData(response.data)
+          )
+        )
+          .catch((error) => {
+            throw error;
+        });
+    };
+};
+
 export const receiveShippingInfo = response => {
     return {
         type: 'RECEIVE_SHIPPING_INFO',
         payload: response
+    };
+};
+
+export const fetchShippingInfo = pid => {
+    return function(dispatch) {
+        axios.get(`/purchase/shippingInfo/${pid}`)
+          .then((response) => dispatch(
+            receiveShippingInfo(response.data)
+          )
+        )
+          .catch((error) => {
+            throw error;
+        });
     };
 };
 
@@ -57,6 +86,27 @@ export const receiveShippingCost = ({cost}) => {
     return {
         type: 'RECEIVE_SHIPPING_COST',
         payload: cost
+    };
+};
+
+export const fetchShippingCost = (departure, destination) => {
+    return function(dispatch) {
+        axios.get(`/purchase/shippingCost/${departure}/${destination}`)
+          .then((response) => dispatch(
+              receiveShippingCost(response.data)
+          ))
+          .then(() => dispatch(
+            selectCountry(destination)
+          ))
+          .then(() => dispatch(
+            toggleDisplayCountry(false)
+          ))
+          .then(() => dispatch(
+            toggleDisplayErrorMessage(false)
+          ))
+          .catch((error) => {
+              throw error;
+          });
     };
 };
 
