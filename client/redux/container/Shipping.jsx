@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleDisplayCountry, toggleDisplayZipcode, 
-        receiveShippingCost, selectCountry, enterZipcode, 
+        selectCountry, enterZipcode, fetchShippingCost, 
         toggleDisplayErrorMessage } from '../action/index';
 import axios from 'axios';
 import postcode from 'postcode-validator';
@@ -28,7 +28,7 @@ class Shipping extends React.Component {
             return;
         }
         if (e.target.value !== 'United States') {
-            this.fetchShippingCost(this.props.shippingInfo.country, e.target.value);
+            this.props.fetchShippingCost(this.props.shippingInfo.country, e.target.value);
             this.props.toggleDisplayZipcode(false);
         } else {
             //display zip code
@@ -42,29 +42,11 @@ class Shipping extends React.Component {
         //if input zipcode is validated
         if (postcode.validate(e.target.value, 'US')) {
             //fetch data
-            this.fetchShippingCost(this.props.shippingInfo.country, 
+            this.props.fetchShippingCost(this.props.shippingInfo.country, 
                 'United States');
             //send data to store
             this.props.enterZipcode(e.target.value);
         }
-    }
-
-    fetchShippingCost(departure, destination) {
-        axios.get(`/purchase/shippingCost/${departure}/${destination}`)
-          .then((response) => {
-                //display shipping cost info
-                this.props.receiveShippingCost(response.data);
-          })
-          .then(() => {
-                this.props.selectCountry(destination);
-                //hide country
-                this.props.toggleDisplayCountry(false);
-                //hide error message
-                this.props.toggleDisplayErrorMessage(false);
-          })
-          .catch((error) => {
-              throw error;
-          });
     }
 
     displayCost(destination, zipcode, cost) {
@@ -186,7 +168,7 @@ const matchDispatchToProps = (dispatch) => {
         toggleDisplayZipcode: toggleDisplayZipcode,
         toggleDisplayErrorMessage: toggleDisplayErrorMessage,
         enterZipcode: enterZipcode,
-        receiveShippingCost: receiveShippingCost
+        fetchShippingCost: fetchShippingCost,
     }, dispatch);
 };
 
@@ -194,3 +176,21 @@ export default connect(
     matchStateToProps,
     matchDispatchToProps
 )(Shipping);
+
+// fetchShippingCost(departure, destination) {
+//     axios.get(`/purchase/shippingCost/${departure}/${destination}`)
+//       .then((response) => {
+//             //display shipping cost info
+//             this.props.receiveShippingCost(response.data);
+//       })
+//       .then(() => {
+//             this.props.selectCountry(destination);
+//             //hide country
+//             this.props.toggleDisplayCountry(false);
+//             //hide error message
+//             this.props.toggleDisplayErrorMessage(false);
+//       })
+//       .catch((error) => {
+//           throw error;
+//       });
+// }

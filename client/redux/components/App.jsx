@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { receiveProductData, receiveShippingInfo } from '../action/index';
+import { fetchProductData, fetchShippingInfo } from '../action/index';
 import Selection from '../container/Selection.jsx';
 import Overview from '../container/Overview.jsx';
 import Price from '../container/Price.jsx';
@@ -14,28 +14,8 @@ import styles from '../../style.css';
 class App extends React.Component {
 
     componentDidMount() {
-        this.fetchProduct();
-        this.fetchShippingInfo();
-    }
-
-    fetchProduct() {
-        axios.get(`/purchase/item/${pid}`)
-          .then((response) => {
-              this.props.receiveProductData(response.data);
-          })
-          .catch((error) => {
-              throw error;
-          });
-    }
-
-    fetchShippingInfo() {
-        axios.get(`/purchase/shippingInfo/${pid}`)
-          .then((response) => {
-              this.props.receiveShippingInfo(response.data);
-          })
-          .catch((error) => {
-              throw error;
-          });
+        this.props.fetchProductData(pid);
+        this.props.fetchShippingInfo(pid);
     }
 
     render() {
@@ -59,8 +39,8 @@ class App extends React.Component {
             );
         }
         return (
-            <div>
-                Please wait
+            <div className={styles.loader}>
+                
             </div>
         );
         
@@ -78,8 +58,8 @@ const matchStateToProps = (state) => {
 
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({ 
-        receiveProductData: receiveProductData,
-        receiveShippingInfo: receiveShippingInfo
+        fetchProductData: fetchProductData,
+        fetchShippingInfo: fetchShippingInfo,
     }, dispatch);
 };
 
@@ -87,3 +67,25 @@ export default connect(
     matchStateToProps,
     matchDispatchToProps
 )(App);
+
+
+// fetchProduct() {
+//     axios.get(`/purchase/item/${pid}`)
+//       .then((response) => {
+//           this.props.receiveProductData(response.data);
+//       })
+//       .catch((error) => {
+//           throw error;
+//       });
+// }
+
+
+// fetchShippingInfo() {
+//     axios.get(`/purchase/shippingInfo/${pid}`)
+//       .then((response) => {
+//           this.props.receiveShippingInfo(response.data);
+//       })
+//       .catch((error) => {
+//           throw error;
+//       });
+// }
