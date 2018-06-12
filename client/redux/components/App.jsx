@@ -39,8 +39,8 @@ class App extends React.Component {
             );
         }
         return (
-            <div>
-                Please wait
+            <div className={styles.loader}>
+                
             </div>
         );
         

@@ -1,3 +1,29 @@
+:local(.loader) {
+    animation: loader-rotate .8s infinite linear;
+    background: transparent;
+    border: 6px solid rgba(100, 100, 100, .5);
+    border-radius: 100%;
+    border-top-color: #fff;
+    height: 60px;
+    left: 70%;
+    margin: -30px 0 0 -30px;
+    opacity: .6;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    z-index: 99999;
+}
+
+@keyframes loader-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
 :local(.sidebar){
     width: 392px;
     font-family: "Graphik Webfont", -apple-system,BlinkMacSystemFont,
