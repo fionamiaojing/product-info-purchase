@@ -126,3 +126,5 @@ for (let i = 0; i < 15; i++) {
     home.save();
     groupId++;
 }
+
+//try to close the connection after generating all dummy datas
