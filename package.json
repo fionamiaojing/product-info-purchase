@@ -7,7 +7,11 @@
     "test": "jest",
     "react-dev": "webpack -d --watch",
     "build": "webpack",
-    "start": "nodemon server/server.js"
+    "group": "node ./database/dummydata/groupItem.js",
+    "item" : "node ./database/dummydata/items.js",
+    "shipping": "node ./database/dummydata/shipping.js",
+    "server-start": "nodemon server/server.js",
+    "start": "npm run group | npm run item | npm run shipping | npm run build | npm run server-start"
   },
   "jest": {
     "scriptPreprocessor": "./node_modules/jest-css-modules"

@@ -1,11 +1,13 @@
 const express = require('express');
 const helper = require('./helper.js');
+const morgan = require('morgan');
 
 const app = express();
 
 const staticURL = '/purchase';
 
 app.use(express.json());
+app.use(morgan("dev"));
 //make html request like http://localhost:3003/purchase/id
 app.use(express.static(__dirname + '/../public'));
 app.use('/listing/:id', express.static(__dirname + '/../public'));

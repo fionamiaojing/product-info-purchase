@@ -88,7 +88,7 @@ const handleClick = (selectedItem, {quantity}) => {
 };
 
 const send = (cartItem)  => {
-    axios.post(`/purhcase/cart/${userID}`, cartItem)
+    axios.post(`/purchase/cart/${userID}`, cartItem)
       .catch((error) => {
           throw error;
       });
