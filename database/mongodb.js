@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/etsy');
+mongoose.connect('mongodb://172.17.0.2/16/etsy');
+//mongoose.connect('mongodb://localhost/etsy');
 
 //GROUP ITEM----------------------------------------------------------------->
 //group item schema for all products
