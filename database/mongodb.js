@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://172.17.0.2/16/etsy');
+//use this line if using docker-compose to build mongodb and component together
+mongoose.connect('mongodb://database/etsy');
+//use this line if using pre-built mongodb container
+//mongoose.connect('mongodb://172.17.0.2/16/etsy');
+//use this line if running localhost
 //mongoose.connect('mongodb://localhost/etsy');
 
 //GROUP ITEM----------------------------------------------------------------->
