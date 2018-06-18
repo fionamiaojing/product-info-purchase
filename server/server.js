@@ -68,8 +68,8 @@ app.get(staticURL + '/shippingCost/:departure/:destination', (req, res) => {
       });
 });
 
-const PORT = 3003;
+const PORT = process.env.PORT || 3003;
 
 app.listen(PORT, function() {
-    console.log("Listening on port 3003!");
+    console.log(`Listening on port ${PORT}!`);
 });

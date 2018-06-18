@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 //use this line if using docker-compose to build mongodb and component together
-mongoose.connect('mongodb://database/etsy');
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://database/etsy' || 'mongodb://localhost/etsy');
 //use this line if using pre-built mongodb container
 //mongoose.connect('mongodb://172.17.0.2/16/etsy');
 //use this line if running localhost
