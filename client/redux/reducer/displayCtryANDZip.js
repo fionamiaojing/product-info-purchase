@@ -16,3 +16,6 @@ export const displayZipcode = (state = false, action) => {
             return state;
     }
 };
+
+//I should put displayCountry, displayZipcode and those two in displayError.js altogether in this sheet
+//And put them in one switch case with different cases

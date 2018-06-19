@@ -116,3 +116,7 @@ export default connect(
     mapStateToProps,
     matchDispatchToProps
 )(AddButton);
+
+//I should split AddButton container and AddButton components
+//But this is my first time using redux, and I don't feel I can handle it well.
+//So I put them together to avoid potential problems

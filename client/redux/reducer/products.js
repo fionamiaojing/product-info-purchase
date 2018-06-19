@@ -7,6 +7,8 @@ export const groupItems = (state = {}, action) => {
             return state;
     }
 };
+// I think I can combine other reducers with the same default state of {} together maybe
+
 
 // {
 //     "_id": "5b143435b7a9782139602836",
