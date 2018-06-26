@@ -1,4 +1,5 @@
-# Itsy Sidebar Components
+#Mac Please Review 
+#Itsy Sidebar Components
 
 Contains Add-To-CART, product overview and shipping infomation of the product.
 A clone of Etsy product page
