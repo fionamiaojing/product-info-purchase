@@ -5,13 +5,12 @@ A clone of Etsy product page
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [Demo](#Demo)
+2. [Requirements](#requirements)
+3. [Development](#development)
 
-## Usage
-
-> Some usage instructions
+## Demo
+<img src="https://github.com/hrsf-narwhal/product-info-purchase/blob/master/Itsy_demo.gif" />
 
 ## Requirements
 
